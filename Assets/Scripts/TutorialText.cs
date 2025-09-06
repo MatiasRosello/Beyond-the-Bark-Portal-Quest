@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class TutorialText : MonoBehaviour
 {
@@ -12,11 +13,11 @@ public class TutorialText : MonoBehaviour
 
     public void Show()
     {
-        
+        text.DOFade(1f, 1f);
     }
 
     public void Hide()
     {
-
+        text.DOFade(0f, 1f);
     }
 }

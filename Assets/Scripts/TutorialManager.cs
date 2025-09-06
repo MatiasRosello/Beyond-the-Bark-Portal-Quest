@@ -14,14 +14,14 @@ public class TutorialManager : MonoBehaviour
 
     private IEnumerator FirstTutorialStepCoroutine()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.75f);
         wasdTutorialText.Show();
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(5f);
         wasdTutorialText.Hide();
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
 
         shiftTutorialText.Show();
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(5f);
         shiftTutorialText.Hide();
     }
 }
