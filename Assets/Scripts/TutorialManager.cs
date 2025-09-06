@@ -8,6 +8,9 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private TutorialText wasdTutorialText;
     [SerializeField] private TutorialText shiftTutorialText;
 
+    [SerializeField] private GameObject playerFollowCamera;
+    [SerializeField] private GameObject secondTutorialStepCamera;
+
     private ThirdPersonController thirdPersonController;
 
     private void Awake()
@@ -33,17 +36,22 @@ public class TutorialManager : MonoBehaviour
         shiftTutorialText.Hide();
         yield return new WaitForSeconds(2f);
 
-        SceneTransitionManager.Instance.FadeInSameScene(OnFadeInFinished, OnFadeOutFinished);
+        SceneTransitionManager.Instance.FadeInSameScene(OnFadeInFinished, OnFadeOutStarted,OnFadeOutFinished);
     }
 
     private void OnFadeInFinished()
     {
         thirdPersonController.enabled = false;
-        // Switch camera
+    }
+
+    private void OnFadeOutStarted()
+    {
+        playerFollowCamera.SetActive(false);
+        secondTutorialStepCamera.SetActive(true);
     }
 
     private void OnFadeOutFinished()
     {
-        // Start sequence
+        // Start actual sequence
     }
 }

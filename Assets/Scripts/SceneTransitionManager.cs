@@ -21,7 +21,7 @@ public class SceneTransitionManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void FadeInSameScene(Action OnFadeInFinished = null, Action OnFadeOutFinished = null)
+    public void FadeInSameScene(Action OnFadeInFinished = null, Action OnFadeOutStarted = null, Action OnFadeOutFinished = null)
     {
         image.DOFade(1f, 1.75f)
             .OnComplete(() =>
@@ -29,6 +29,7 @@ public class SceneTransitionManager : MonoBehaviour
                 OnFadeInFinished?.Invoke();
                 image.DOFade(0f, 1.75f)
                     .SetDelay(0.85f)
+                    .OnStart(() => OnFadeOutStarted?.Invoke())
                     .OnComplete(() => OnFadeOutFinished?.Invoke());
             });
     }
