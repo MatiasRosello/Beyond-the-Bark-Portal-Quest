@@ -1,16 +1,27 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private TutorialText wasdTutorialText;
+    [SerializeField] private TutorialText shiftTutorialText;
+
+    private void Start()
     {
-        
+        StartCoroutine(FirstTutorialStepCoroutine());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator FirstTutorialStepCoroutine()
     {
-        
+        yield return new WaitForSeconds(1f);
+        wasdTutorialText.Show();
+        yield return new WaitForSeconds(2.5f);
+        wasdTutorialText.Hide();
+        yield return new WaitForSeconds(1.5f);
+
+        shiftTutorialText.Show();
+        yield return new WaitForSeconds(2.5f);
+        shiftTutorialText.Hide();
     }
 }
