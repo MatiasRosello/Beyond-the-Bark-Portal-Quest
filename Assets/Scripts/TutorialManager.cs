@@ -42,6 +42,7 @@ public class TutorialManager : MonoBehaviour
     private void OnFadeInFinished()
     {
         thirdPersonController.enabled = false;
+        thirdPersonController.GetComponent<Animator>().SetFloat("Speed", 0);
     }
 
     private void OnFadeOutStarted()
