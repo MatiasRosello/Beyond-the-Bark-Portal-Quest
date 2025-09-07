@@ -177,7 +177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7531526095076922676, guid: 2986061edf1992b4f88a4f59e5dc3a25, type: 3}
       propertyPath: m_Name
-      value: Pared (5)
+      value: 'Pared '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -254,6 +254,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2986061edf1992b4f88a4f59e5dc3a25, type: 3}
+--- !u!4 &216141335 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2401447119712294553, guid: 2986061edf1992b4f88a4f59e5dc3a25, type: 3}
+  m_PrefabInstance: {fileID: 430568783}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &250204605 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8276231449850554988, guid: 4127abfd4f8e1b841a5d2b7bd6bc95aa, type: 3}
@@ -368,7 +373,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 507032185}
     m_Modifications:
     - target: {fileID: 2401447119712294553, guid: 2986061edf1992b4f88a4f59e5dc3a25, type: 3}
       propertyPath: m_LocalScale.y
@@ -380,15 +385,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2401447119712294553, guid: 2986061edf1992b4f88a4f59e5dc3a25, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.3559246
+      value: 1.3213449
       objectReference: {fileID: 0}
     - target: {fileID: 2401447119712294553, guid: 2986061edf1992b4f88a4f59e5dc3a25, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.1737
+      value: 22.257542
       objectReference: {fileID: 0}
     - target: {fileID: 2401447119712294553, guid: 2986061edf1992b4f88a4f59e5dc3a25, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -39.1976
+      value: -54.75196
       objectReference: {fileID: 0}
     - target: {fileID: 2401447119712294553, guid: 2986061edf1992b4f88a4f59e5dc3a25, type: 3}
       propertyPath: m_LocalRotation.w
@@ -519,6 +524,7 @@ Transform:
   - {fileID: 966074732}
   - {fileID: 1201714952}
   - {fileID: 1348349226}
+  - {fileID: 216141335}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &533081483 stripped
@@ -645,7 +651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7531526095076922676, guid: 2986061edf1992b4f88a4f59e5dc3a25, type: 3}
       propertyPath: m_Name
-      value: Pared (3)
+      value: Pared
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -897,7 +903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7531526095076922676, guid: 2986061edf1992b4f88a4f59e5dc3a25, type: 3}
       propertyPath: m_Name
-      value: Pared (4)
+      value: Pared
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -972,7 +978,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7531526095076922676, guid: 2986061edf1992b4f88a4f59e5dc3a25, type: 3}
       propertyPath: m_Name
-      value: Pared (2)
+      value: 'Pared '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1042,7 +1048,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7531526095076922676, guid: 2986061edf1992b4f88a4f59e5dc3a25, type: 3}
       propertyPath: m_Name
-      value: Pared (1)
+      value: Pared
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1204,7 +1210,7 @@ GameObject:
   - component: {fileID: 1513587023}
   - component: {fileID: 1513587022}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Cofre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1507,4 +1513,3 @@ SceneRoots:
   - {fileID: 396566211}
   - {fileID: 507032185}
   - {fileID: 1513587025}
-  - {fileID: 430568783}
