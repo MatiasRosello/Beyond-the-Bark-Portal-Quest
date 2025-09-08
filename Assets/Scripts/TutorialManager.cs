@@ -70,6 +70,8 @@ public class TutorialManager : MonoBehaviour
         playerFollowCamera.SetActive(false);
         secondTutorialStepCamera.SetActive(true);
 
+        yield return new WaitForSeconds(1.5f);
+
         thirdPersonController.enabled = true;
     }
 }
