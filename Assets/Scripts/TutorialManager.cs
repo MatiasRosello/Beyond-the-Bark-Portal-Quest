@@ -8,19 +8,31 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private TutorialText wasdTutorialText;
     [SerializeField] private TutorialText shiftTutorialText;
 
+    [Space(15)]
+
     [SerializeField] private GameObject playerFollowCamera;
     [SerializeField] private GameObject secondTutorialStepCamera;
 
+    [Space(15)]
+
+    [SerializeField] private Transform firstPlayerTarget;
+    [SerializeField] private GameObject firstWall;
+
     private ThirdPersonController thirdPersonController;
+    private ManualPlayerMovementController manualPlayerMovementController;
+    private GameObject player;
 
     private void Awake()
     {
         thirdPersonController = FindFirstObjectByType<ThirdPersonController>();
+        manualPlayerMovementController = FindFirstObjectByType<ManualPlayerMovementController>();
     }
 
     private void Start()
     {
         StartCoroutine(FirstTutorialStepCoroutine());
+
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private IEnumerator FirstTutorialStepCoroutine()
@@ -36,7 +48,7 @@ public class TutorialManager : MonoBehaviour
         shiftTutorialText.Hide();
         yield return new WaitForSeconds(2f);
 
-        SceneTransitionManager.Instance.FadeInSameScene(OnFadeInFinished, OnFadeOutStarted,OnFadeOutFinished);
+        SceneTransitionManager.Instance.FadeInSameScene(OnFadeInFinished, OnFadeOutStarted);
     }
 
     private void OnFadeInFinished()
@@ -56,10 +68,16 @@ public class TutorialManager : MonoBehaviour
 
         playerFollowCamera.SetActive(false);
         secondTutorialStepCamera.SetActive(true);
-    }
 
-    private void OnFadeOutFinished()
-    {
-        // Start actual sequence
+        yield return new WaitForSeconds(2f);
+
+        firstWall.SetActive(false);
+
+        Vector3 targetPlayerPosition = new Vector3(
+            firstPlayerTarget.transform.position.x,
+            player.transform.position.y,
+            firstPlayerTarget.transform.position.z
+        );
+        player.transform.position = targetPlayerPosition;
     }
 }

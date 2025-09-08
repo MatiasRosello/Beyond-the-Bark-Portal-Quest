@@ -13461,6 +13461,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583136365}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &586201903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 586201904}
+  m_Layer: 0
+  m_Name: FirstPlayerTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &586201904
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586201903}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.17247313, y: -0.07151352, z: 0.012662717, w: 0.98233324}
+  m_LocalPosition: {x: 3.134767, y: -6.702539, z: -2.0255165}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 603133429}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &586544896
 GameObject:
   m_ObjectHideFlags: 0
@@ -13893,6 +13924,8 @@ MonoBehaviour:
   shiftTutorialText: {fileID: 1738621035}
   playerFollowCamera: {fileID: 594810290}
   secondTutorialStepCamera: {fileID: 629874252}
+  firstPlayerTarget: {fileID: 586201904}
+  firstWall: {fileID: 753525440}
 --- !u!4 &603133429
 Transform:
   m_ObjectHideFlags: 0
@@ -13905,7 +13938,9 @@ Transform:
   m_LocalPosition: {x: -1.2250687, y: 5.182539, z: -24.942455}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 586201904}
+  - {fileID: 753525441}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &605397829
@@ -17423,7 +17458,7 @@ GameObject:
   - component: {fileID: 753525443}
   - component: {fileID: 753525442}
   m_Layer: 0
-  m_Name: 1stWall
+  m_Name: FirstWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17438,11 +17473,11 @@ Transform:
   m_GameObject: {fileID: 753525440}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.49, y: 0, z: 8.779999}
+  m_LocalPosition: {x: 3.0250683, y: -4.182539, z: 0.042453766}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1168206848}
+  m_Father: {fileID: 603133429}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &753525442
 BoxCollider:
@@ -26949,38 +26984,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163992400}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1168206847
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1168206848}
-  m_Layer: 0
-  m_Name: TutorialWalls
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1168206848
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1168206847}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 753525441}
-  m_Father: {fileID: 1359013720}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1168448292
 GameObject:
   m_ObjectHideFlags: 0
@@ -32630,7 +32633,6 @@ Transform:
   - {fileID: 1339179117}
   - {fileID: 953054294}
   - {fileID: 807395399}
-  - {fileID: 1168206848}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1370558706
