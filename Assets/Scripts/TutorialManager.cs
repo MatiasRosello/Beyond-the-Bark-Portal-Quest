@@ -16,16 +16,15 @@ public class TutorialManager : MonoBehaviour
     [Space(15)]
 
     [SerializeField] private Transform firstPlayerTarget;
+    [SerializeField] private GameObject firstTutorialTrigger;
     [SerializeField] private GameObject firstWall;
 
     private ThirdPersonController thirdPersonController;
-    private ManualPlayerMovementController manualPlayerMovementController;
     private GameObject player;
 
     private void Awake()
     {
         thirdPersonController = FindFirstObjectByType<ThirdPersonController>();
-        manualPlayerMovementController = FindFirstObjectByType<ManualPlayerMovementController>();
     }
 
     private void Start()
@@ -48,17 +47,19 @@ public class TutorialManager : MonoBehaviour
         shiftTutorialText.Hide();
         yield return new WaitForSeconds(2f);
 
-        SceneTransitionManager.Instance.FadeInSameScene(OnFadeInFinished, OnFadeOutStarted);
+        firstWall.SetActive(false);
+        firstTutorialTrigger.SetActive(true);
+
+        // SceneTransitionManager.Instance.FadeInSameScene(OnFadeInFinished, OnFadeOutStarted);
     }
 
-    private void OnFadeInFinished()
+    public void FirstTutorialTrigger_OnTriggerEnterWithPlayer()
     {
+        firstTutorialTrigger.SetActive(false);
+
         thirdPersonController.enabled = false;
         thirdPersonController.GetComponent<Animator>().SetFloat("Speed", 0);
-    }
 
-    private void OnFadeOutStarted()
-    {
         StartCoroutine(ChangeCameraDelayCoroutine());
     }
 
@@ -69,15 +70,6 @@ public class TutorialManager : MonoBehaviour
         playerFollowCamera.SetActive(false);
         secondTutorialStepCamera.SetActive(true);
 
-        yield return new WaitForSeconds(2f);
-
-        firstWall.SetActive(false);
-
-        Vector3 targetPlayerPosition = new Vector3(
-            firstPlayerTarget.transform.position.x,
-            player.transform.position.y,
-            firstPlayerTarget.transform.position.z
-        );
-        player.transform.position = targetPlayerPosition;
+        thirdPersonController.enabled = true;
     }
 }
