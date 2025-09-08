@@ -7,6 +7,7 @@ public class TutorialManager : MonoBehaviour
 {
     [SerializeField] private TutorialText wasdTutorialText;
     [SerializeField] private TutorialText shiftTutorialText;
+    [SerializeField] private TutorialText goToTheFirstObjectiveText;
 
     [Space(15)]
 
@@ -38,15 +39,19 @@ public class TutorialManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.75f);
         wasdTutorialText.Show();
+
         yield return new WaitForSeconds(5f);
         wasdTutorialText.Hide();
-        yield return new WaitForSeconds(2f);
 
+        yield return new WaitForSeconds(2f);
         shiftTutorialText.Show();
+
         yield return new WaitForSeconds(5f);
         shiftTutorialText.Hide();
+
         yield return new WaitForSeconds(2f);
 
+        goToTheFirstObjectiveText.Show();
         firstWall.SetActive(false);
         firstTutorialTrigger.SetActive(true);
 
@@ -55,6 +60,8 @@ public class TutorialManager : MonoBehaviour
 
     public void FirstTutorialTrigger_OnTriggerEnterWithPlayer()
     {
+        goToTheFirstObjectiveText.Hide();
+
         firstTutorialTrigger.SetActive(false);
 
         thirdPersonController.enabled = false;
