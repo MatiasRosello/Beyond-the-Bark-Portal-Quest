@@ -8,6 +8,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private TutorialText wasdTutorialText;
     [SerializeField] private TutorialText shiftTutorialText;
     [SerializeField] private TutorialText goToTheFirstObjectiveText;
+    [SerializeField] private TutorialText yourDogText;
 
     [Space(15)]
 
@@ -22,10 +23,17 @@ public class TutorialManager : MonoBehaviour
 
     private ThirdPersonController thirdPersonController;
     private GameObject player;
+    private DogTutorialController dogTutorialController;
 
     private void Awake()
     {
         thirdPersonController = FindFirstObjectByType<ThirdPersonController>();
+        dogTutorialController = FindFirstObjectByType<DogTutorialController>();
+    }
+
+    private void OnEnable()
+    {
+        dogTutorialController.OnReachedPortal.AddListener(DogTutorialController_OnReachedPortal);
     }
 
     private void Start()
@@ -33,6 +41,11 @@ public class TutorialManager : MonoBehaviour
         StartCoroutine(FirstTutorialStepCoroutine());
 
         player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    private void OnDisable()
+    {
+        dogTutorialController.OnReachedPortal.RemoveListener(DogTutorialController_OnReachedPortal);
     }
 
     private IEnumerator FirstTutorialStepCoroutine()
@@ -50,12 +63,10 @@ public class TutorialManager : MonoBehaviour
         shiftTutorialText.Hide();
 
         yield return new WaitForSeconds(2f);
-
         goToTheFirstObjectiveText.Show();
         firstWall.SetActive(false);
         firstTutorialTrigger.SetActive(true);
 
-        // SceneTransitionManager.Instance.FadeInSameScene(OnFadeInFinished, OnFadeOutStarted);
     }
 
     public void FirstTutorialTrigger_OnTriggerEnterWithPlayer()
@@ -79,6 +90,12 @@ public class TutorialManager : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
 
+        dogTutorialController.StartMovingToPortal();
+    }
+
+    private void DogTutorialController_OnReachedPortal()
+    {
         thirdPersonController.enabled = true;
+        yourDogText.Show();
     }
 }
