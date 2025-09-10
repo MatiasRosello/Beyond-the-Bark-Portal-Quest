@@ -9,6 +9,7 @@ public class PortalTutorialController : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             ThirdPersonController thirdPersonController = other.GetComponent<ThirdPersonController>();
+            thirdPersonController.GetComponent<Animator>().SetFloat("Speed", 0);
             thirdPersonController.enabled = false;
 
             SceneTransitionManager.Instance.FadeIn(
