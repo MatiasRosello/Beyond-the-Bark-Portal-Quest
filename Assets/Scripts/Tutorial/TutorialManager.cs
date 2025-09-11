@@ -24,11 +24,13 @@ public class TutorialManager : MonoBehaviour
     private ThirdPersonController thirdPersonController;
     private GameObject player;
     private DogTutorialController dogTutorialController;
+    private DogMove dogMove;
 
     private void Awake()
     {
         thirdPersonController = FindFirstObjectByType<ThirdPersonController>();
         dogTutorialController = FindFirstObjectByType<DogTutorialController>();
+        dogMove = FindFirstObjectByType<DogMove>();
     }
 
     private void OnEnable()
@@ -74,6 +76,8 @@ public class TutorialManager : MonoBehaviour
         goToTheFirstObjectiveText.Hide();
 
         firstTutorialTrigger.SetActive(false);
+
+        dogMove.enabled = false;
 
         thirdPersonController.enabled = false;
         thirdPersonController.GetComponent<Animator>().SetFloat("Speed", 0);

@@ -9,30 +9,53 @@ public class DogTutorialController : MonoBehaviour
 
     private float rotateSpeed = 12f;
     private float moveSpeed = 3f;
-    private float stopDistance = 0.05f;
+    private float stopDistance = 0.05f; // Distancia mínima al portal
+
+    private bool shouldRotateToPortal;
     private bool shouldMoveToPortal;
 
     private void Update()
     {
-        if (!shouldMoveToPortal) { return; }
+        if (portalTransform == null) return;
 
-        transform.position = Vector3.MoveTowards(transform.position, portalTransform.position, moveSpeed * Time.deltaTime);
-
-        Vector3 toTarget = portalTransform.position - transform.position;
-        toTarget.y = 0f;
-
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(toTarget), rotateSpeed * Time.deltaTime);
-
-        if (Vector3.Distance(transform.position, portalTransform.position) <= stopDistance)
+        if (shouldRotateToPortal)
         {
-            shouldMoveToPortal = false;
-            OnReachedPortal?.Invoke();
-            Destroy(gameObject);
+            // Vector hacia el portal
+            Vector3 toTarget = new Vector3(portalTransform.position.x - transform.position.x, 0f, portalTransform.position.z - transform.position.z);
+
+            if (toTarget.sqrMagnitude > 0.01f)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(toTarget);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
+
+                // Cuando está suficientemente alineado, cambia a fase de movimiento
+                if (Quaternion.Angle(transform.rotation, targetRotation) < 2f)
+                {
+                    shouldRotateToPortal = false;
+                    shouldMoveToPortal = true;
+                }
+            }
+        }
+        else if (shouldMoveToPortal)
+        {
+            Vector3 targetPos = new Vector3(portalTransform.position.x, transform.position.y, portalTransform.position.z);
+
+            // Mover hacia el portal
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+
+            // Si llegó cerca del portal
+            if (Vector3.Distance(transform.position, targetPos) <= stopDistance)
+            {
+                shouldMoveToPortal = false;
+                OnReachedPortal?.Invoke();
+                Destroy(gameObject);
+            }
         }
     }
 
     public void StartMovingToPortal()
     {
-        shouldMoveToPortal = true;
+        shouldRotateToPortal = true;
+        shouldMoveToPortal = false;
     }
 }
