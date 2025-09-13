@@ -9,12 +9,14 @@ public class Chest : MonoBehaviour
     }
 
     private bool canBeOpened;
+    private bool opened;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && !opened)
         {
-            print("Open chest");
+            opened = true;
+            FirstLevelTutorialManager.Instance.HasOpenedChest = true;
         }
     }
 }
