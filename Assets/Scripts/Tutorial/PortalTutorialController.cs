@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class PortalTutorialController : MonoBehaviour
 {
+    [SerializeField] private GameIconContainer gameIconContainer;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -12,10 +14,19 @@ public class PortalTutorialController : MonoBehaviour
             thirdPersonController.GetComponent<Animator>().SetFloat("Speed", 0);
             thirdPersonController.enabled = false;
 
-            SceneTransitionManager.Instance.FadeIn(
-                null,
-                () => SceneManager.LoadScene("Level1"),
-                null);
+            if (gameIconContainer != null)
+            {
+                gameIconContainer.Tween();
+            }
+            // Load in next level
+            // else
+            // {
+            //     SceneTransitionManager.Instance.FadeIn(
+            //         null,
+            //         () => SceneManager.LoadScene("Level1"),
+            //         null
+            //     );
+            // }
         }
     }
 }
