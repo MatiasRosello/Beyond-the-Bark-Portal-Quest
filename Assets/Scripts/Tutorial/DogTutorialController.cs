@@ -1,3 +1,4 @@
+using ithappy.Animals_FREE;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,56 +7,57 @@ public class DogTutorialController : MonoBehaviour
     public UnityEvent OnReachedPortal;
 
     [SerializeField] private Transform portalTransform;
+    [SerializeField] private float stopDistance = 0.05f;
+    [SerializeField] private bool destroyOnReach = true;
+    [SerializeField] private CreatureMover mover;
+    [SerializeField] private MovePlayerInput playerInput;
 
-    private float rotateSpeed = 12f;
-    private float moveSpeed = 3f;
-    private float stopDistance = 0.05f; // Distancia mínima al portal
-
-    private bool shouldRotateToPortal;
-    private bool shouldMoveToPortal;
+    private bool isAutoMoving;
+    private Transform currentTarget;
+    private bool runWhileMoving;
 
     private void Update()
     {
-        if (portalTransform == null) return;
+        if (!isAutoMoving || currentTarget == null || mover == null) return;
 
-        if (shouldRotateToPortal)
+        Vector3 selfPos = transform.position;
+        Vector3 destPos = currentTarget.position;
+        Vector3 flatDelta = new Vector3(destPos.x - selfPos.x, 0f, destPos.z - selfPos.z);
+
+        if (flatDelta.sqrMagnitude > stopDistance * stopDistance)
         {
-            // Vector hacia el portal
-            Vector3 toTarget = new Vector3(portalTransform.position.x - transform.position.x, 0f, portalTransform.position.z - transform.position.z);
-
-            if (toTarget.sqrMagnitude > 0.01f)
-            {
-                Quaternion targetRotation = Quaternion.LookRotation(toTarget);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
-
-                // Cuando está suficientemente alineado, cambia a fase de movimiento
-                if (Quaternion.Angle(transform.rotation, targetRotation) < 2f)
-                {
-                    shouldRotateToPortal = false;
-                    shouldMoveToPortal = true;
-                }
-            }
+            Vector2 axis = new Vector2(0f, 1f);
+            mover.SetInput(in axis, in destPos, in runWhileMoving, false);
         }
-        else if (shouldMoveToPortal)
+        else
         {
-            Vector3 targetPos = new Vector3(portalTransform.position.x, transform.position.y, portalTransform.position.z);
-
-            // Mover hacia el portal
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
-
-            // Si llegó cerca del portal
-            if (Vector3.Distance(transform.position, targetPos) <= stopDistance)
-            {
-                shouldMoveToPortal = false;
-                OnReachedPortal?.Invoke();
-                Destroy(gameObject);
-            }
+            Vector2 axis = Vector2.zero;
+            mover.SetInput(in axis, in destPos, false, false);
+            isAutoMoving = false;
+            if (playerInput != null) playerInput.enabled = true;
+            OnReachedPortal?.Invoke();
+            if (destroyOnReach) Destroy(gameObject);
         }
+    }
+
+    public void MoveTo(Transform target, float customStopDistance = -1f, bool run = true)
+    {
+        currentTarget = target;
+        if (customStopDistance > 0f) stopDistance = customStopDistance;
+        runWhileMoving = run;
+        isAutoMoving = true;
+        if (playerInput != null) playerInput.enabled = false;
     }
 
     public void StartMovingToPortal()
     {
-        shouldRotateToPortal = true;
-        shouldMoveToPortal = false;
+        if (portalTransform == null) return;
+        MoveTo(portalTransform, stopDistance, true);
+    }
+
+    public void CancelAutoMove()
+    {
+        isAutoMoving = false;
+        if (playerInput != null) playerInput.enabled = true;
     }
 }

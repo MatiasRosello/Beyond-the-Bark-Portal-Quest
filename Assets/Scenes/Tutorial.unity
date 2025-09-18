@@ -45570,6 +45570,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2008785647}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2018729890 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4643032172928699166, guid: 74fc07262735fbc47b51fa676c5e856c, type: 3}
+  m_PrefabInstance: {fileID: 5905601586571090597}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2c67ce836140b4479603ebcf944cddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2018729891 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 937958957142173823, guid: 74fc07262735fbc47b51fa676c5e856c, type: 3}
+  m_PrefabInstance: {fileID: 5905601586571090597}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2f4aa750c530144bd7219a00354c98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2020977018
 GameObject:
   m_ObjectHideFlags: 0
@@ -48283,7 +48305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2115808061824710020, guid: 74fc07262735fbc47b51fa676c5e856c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 2115808061824710020, guid: 74fc07262735fbc47b51fa676c5e856c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -48321,6 +48343,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dog
       objectReference: {fileID: 0}
+    - target: {fileID: 2655401333320645479, guid: 74fc07262735fbc47b51fa676c5e856c, type: 3}
+      propertyPath: mover
+      value: 
+      objectReference: {fileID: 2018729891}
+    - target: {fileID: 2655401333320645479, guid: 74fc07262735fbc47b51fa676c5e856c, type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 2018729890}
     - target: {fileID: 2655401333320645479, guid: 74fc07262735fbc47b51fa676c5e856c, type: 3}
       propertyPath: portalTransform
       value: 
