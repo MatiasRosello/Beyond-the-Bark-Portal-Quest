@@ -11943,7 +11943,7 @@ MonoBehaviour:
   objetivo: {fileID: 184160328}
   rango: 5
   distanciaMinima: 2
-  velocidad: 4
+  velocidad: 10
 --- !u!1 &555446918
 GameObject:
   m_ObjectHideFlags: 0
@@ -12123,6 +12123,10 @@ PrefabInstance:
     - target: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755997212630762266, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
