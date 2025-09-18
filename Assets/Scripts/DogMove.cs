@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class DogMove : MonoBehaviour
 {
-    public Transform objetivo;
-    public float rango = 5f;
-    public float distanciaMinima = 2f; // Distancia mínima a mantener
-    public float velocidad = 3f;
+    [SerializeField] private Transform objetivo;
+    [SerializeField] private float rango = 5f;
+    [SerializeField] private float distanciaMinima = 2f; // Distancia mínima a mantener
+    [SerializeField] private float velocidad = 3f;
 
     void Update()
     {
