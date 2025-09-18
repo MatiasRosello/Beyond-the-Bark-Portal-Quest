@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - Dog
+  - Enemy
   layers:
   - Default
   - TransparentFX
