@@ -1,4 +1,5 @@
 using StarterAssets;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,6 +28,11 @@ public class PortalTutorialController : MonoBehaviour
             //         null
             //     );
             // }
+        }
+        if (other.gameObject.CompareTag("Dog"))
+        {
+            other.gameObject.SetActive(false);
+            TutorialManager.Instance.DogTutorialController_OnReachedPortal();
         }
     }
 }

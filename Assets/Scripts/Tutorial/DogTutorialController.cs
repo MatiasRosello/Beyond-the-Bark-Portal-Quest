@@ -29,15 +29,6 @@ public class DogTutorialController : MonoBehaviour
             Vector2 axis = new Vector2(0f, 1f);
             mover.SetInput(in axis, in destPos, in runWhileMoving, false);
         }
-        else
-        {
-            Vector2 axis = Vector2.zero;
-            mover.SetInput(in axis, in destPos, false, false);
-            isAutoMoving = false;
-            if (playerInput != null) playerInput.enabled = true;
-            OnReachedPortal?.Invoke();
-            if (destroyOnReach) Destroy(gameObject);
-        }
     }
 
     public void MoveTo(Transform target, float customStopDistance = -1f, bool run = true)

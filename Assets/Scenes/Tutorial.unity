@@ -45574,12 +45574,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2008785647}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2018729888 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1382192228273470399, guid: 74fc07262735fbc47b51fa676c5e856c, type: 3}
+  m_PrefabInstance: {fileID: 5905601586571090597}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2018729890 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4643032172928699166, guid: 74fc07262735fbc47b51fa676c5e856c, type: 3}
   m_PrefabInstance: {fileID: 5905601586571090597}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2018729888}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2c67ce836140b4479603ebcf944cddd, type: 3}
@@ -45590,12 +45595,39 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 937958957142173823, guid: 74fc07262735fbc47b51fa676c5e856c, type: 3}
   m_PrefabInstance: {fileID: 5905601586571090597}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2018729888}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be2f4aa750c530144bd7219a00354c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &2018729894
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018729888}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2020977018
 GameObject:
   m_ObjectHideFlags: 0
@@ -48303,6 +48335,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1382192228273470399, guid: 74fc07262735fbc47b51fa676c5e856c, type: 3}
+      propertyPath: m_TagString
+      value: Dog
+      objectReference: {fileID: 0}
     - target: {fileID: 2115808061824710020, guid: 74fc07262735fbc47b51fa676c5e856c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.42
@@ -48366,6 +48402,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2210854657445873209, guid: 74fc07262735fbc47b51fa676c5e856c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 554778593}
+    - targetCorrespondingSourceObject: {fileID: 1382192228273470399, guid: 74fc07262735fbc47b51fa676c5e856c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2018729894}
   m_SourcePrefab: {fileID: 100100000, guid: 74fc07262735fbc47b51fa676c5e856c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
+    public static TutorialManager Instance;
+
     [SerializeField] private TutorialText wasdTutorialText;
     [SerializeField] private TutorialText shiftTutorialText;
     [SerializeField] private TutorialText goToTheFirstObjectiveText;
@@ -28,6 +30,7 @@ public class TutorialManager : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         thirdPersonController = FindFirstObjectByType<ThirdPersonController>();
         dogTutorialController = FindFirstObjectByType<DogTutorialController>();
         dogMove = FindFirstObjectByType<DogMove>();
@@ -97,7 +100,7 @@ public class TutorialManager : MonoBehaviour
         dogTutorialController.StartMovingToPortal();
     }
 
-    private void DogTutorialController_OnReachedPortal()
+    public void DogTutorialController_OnReachedPortal()
     {
         thirdPersonController.enabled = true;
         yourDogText.Show();
