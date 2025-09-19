@@ -1,7 +1,5 @@
 using UnityEngine;
-using System.Collections;
 
-[RequireComponent(typeof(Rigidbody))]
 public class EnemyMove : MonoBehaviour
 {
     [SerializeField] private Transform objetivo;
@@ -9,97 +7,110 @@ public class EnemyMove : MonoBehaviour
     [SerializeField] private float distanciaMinima = 2f;
     [SerializeField] private float velocidad = 3f;
     [SerializeField] private float velocidadRotacion = 5f;
-    [SerializeField] private string paredTag = "Pared"; // raycast
-    [SerializeField] private float umbralLlegada = 0.1f; 
+    [SerializeField] private string paredTag = "Pared";
+    [SerializeField] private float distanciaDeteccion = 7f;
+    [SerializeField] private float umbralLlegada = 0.1f; // umbral para llegar a la posición inicial
 
-    private Rigidbody rb;
-    private bool paredDetectada;
-    private Vector3 ultimaDireccion;
-    private bool mover = true;
-    private bool corutinaActiva = false;
     private Vector3 posicionInicial;
+    private bool regresando = false;
 
-    void Awake()
+    void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        rb.isKinematic = true;
+        // Guardar la posición inicial al iniciar
         posicionInicial = transform.position;
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        if (!mover) return; // si se bloquea el movimiento
 
         float posicion_Y = transform.position.y;
-        Vector3 destino;
+        float distanciaAlJugador = Vector3.Distance(transform.position, objetivo.position);
+        float distanciaAlInicio = Vector3.Distance(transform.position, posicionInicial);
 
-        float distanciaJugador = Vector3.Distance(transform.position, objetivo.position);
-
-        if (distanciaJugador <= rango)
+        // Si está dentro del rango del jugador, mover hacia él
+        if (distanciaAlJugador <= rango && distanciaAlJugador > distanciaMinima)
         {
-            destino = objetivo.position; // si esta cerca del player
+            regresando = false;
+
+            // Detectar si hay una pared frente al enemigo
+            bool paredEnfrente = DetectarPared();
+
+            Vector3 direccion = (objetivo.position - transform.position).normalized;
+            Vector3 nuevaPos = transform.position + direccion * velocidad * Time.deltaTime;
+            nuevaPos.y = posicion_Y;
+
+            // Solo mover si no hay pared enfrente
+            if (!paredEnfrente)
+            {
+                transform.position = nuevaPos;
+            }
+
+            // Rotar hacia el objetivo
+            RotarHaciaObjetivo();
+        }
+
+        // Si no está en rango y no está en su posición inicial, regresar
+        else if (distanciaAlJugador > rango && distanciaAlInicio > umbralLlegada)
+        {
+            regresando = true;
+
+            Vector3 direccion = (posicionInicial - transform.position).normalized;
+            Vector3 nuevaPos = transform.position + direccion * velocidad * Time.deltaTime;
+            nuevaPos.y = posicion_Y;
+
+            transform.position = nuevaPos;
+
+            // Rotar hacia la posición inicial
+            RotarHaciaPosicionInicial();
         }
         else
         {
-            destino = posicionInicial;
+            // Ya está en la posición inicial
+            regresando = false;
         }
+    }
 
-        // comprobar si volvio a la posicion inicial
-        if (Vector3.Distance(transform.position, destino) < umbralLlegada)
+    bool DetectarPared()
+    {
+        // Raycast en la dirección en frente del enemigo
+        Ray ray = new Ray(transform.position, transform.forward);
+        RaycastHit hit;
+
+        // chequeo pared
+        if (Physics.Raycast(ray, out hit, distanciaDeteccion))
         {
-            return;
-        }
-
-        Vector3 direccion = (destino - transform.position).normalized;
-        direccion.y = 0;
-        float distanciaMovimiento = velocidad * Time.fixedDeltaTime;
-        Vector3 origenRaycast = transform.position + Vector3.up * 1f;
-
-        ultimaDireccion = direccion;
-
-        // Raycast para detectar paredes
-        if (Physics.Raycast(origenRaycast, direccion, out RaycastHit hit, distanciaMovimiento + 0.5f))
-        {
-            Debug.Log("Raycast tocó: " + hit.collider.name + " | Tag: " + hit.collider.tag);
-
             if (hit.collider.CompareTag(paredTag))
             {
-                paredDetectada = true;
-
-                if (!corutinaActiva)
-                    StartCoroutine(PausarMovimiento(2f));
-
-                return;
+                return true;
             }
         }
 
-        paredDetectada = false;
-
-        // mover hacia destino solo si está lejos
-        Vector3 nuevaPos = transform.position + direccion * distanciaMovimiento;
-        nuevaPos.y = posicion_Y;
-        rb.MovePosition(nuevaPos);
-
-        // miramos hacia el player
-        RotarHaciaObjetivo(direccion);
+        return false;
     }
 
-    void RotarHaciaObjetivo(Vector3 direccion)
+    void RotarHaciaObjetivo()
     {
+        Vector3 direccion = objetivo.position - transform.position;
+        direccion.y = 0;
+
         if (direccion != Vector3.zero)
         {
             Quaternion rotacionObjetivo = Quaternion.LookRotation(direccion);
-            rb.MoveRotation(Quaternion.Slerp(rb.rotation, rotacionObjetivo,
-                velocidadRotacion * Time.fixedDeltaTime));
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotacionObjetivo,
+                velocidadRotacion * Time.deltaTime);
         }
     }
 
-    IEnumerator PausarMovimiento(float tiempo)
+    void RotarHaciaPosicionInicial()
     {
-        mover = false;
-        corutinaActiva = true;
-        yield return new WaitForSeconds(tiempo);
-        mover = true;
-        corutinaActiva = false;
+        Vector3 direccion = posicionInicial - transform.position;
+        direccion.y = 0;
+
+        if (direccion != Vector3.zero)
+        {
+            Quaternion rotacionObjetivo = Quaternion.LookRotation(direccion);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotacionObjetivo,
+                velocidadRotacion * Time.deltaTime);
+        }
     }
 }
