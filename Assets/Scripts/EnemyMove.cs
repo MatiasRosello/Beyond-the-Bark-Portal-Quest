@@ -1,47 +1,105 @@
 using UnityEngine;
+using System.Collections;
 
+[RequireComponent(typeof(Rigidbody))]
 public class EnemyMove : MonoBehaviour
 {
     [SerializeField] private Transform objetivo;
     [SerializeField] private float rango = 5f;
-    [SerializeField] private float distanciaMinima = 2f; // Distancia minima a mantener
+    [SerializeField] private float distanciaMinima = 2f;
     [SerializeField] private float velocidad = 3f;
-    [SerializeField] private float velocidadRotacion = 5f; // Velocidad de rotación
+    [SerializeField] private float velocidadRotacion = 5f;
+    [SerializeField] private string paredTag = "Pared"; // raycast
+    [SerializeField] private float umbralLlegada = 0.1f; 
 
-    void Update()
+    private Rigidbody rb;
+    private bool paredDetectada;
+    private Vector3 ultimaDireccion;
+    private bool mover = true;
+    private bool corutinaActiva = false;
+    private Vector3 posicionInicial;
+
+    void Awake()
     {
-        if (objetivo == null) return;
-
-        float posicion_Y = transform.position.y;
-
-        float distancia = Vector3.Distance(transform.position, objetivo.position);
-
-        // Si esta dentro del rango, mover hacia el
-        if (distancia <= rango && distancia > distanciaMinima)
-        {
-            Vector3 direccion = (objetivo.position - transform.position).normalized;
-            Vector3 nuevaPos = transform.position + direccion * velocidad * Time.deltaTime;
-            nuevaPos.y = posicion_Y;
-            transform.position = nuevaPos;
-
-            // rotar para quedar enfrentado al player
-            RotarHaciaObjetivo();
-        }
+        rb = GetComponent<Rigidbody>();
+        rb.isKinematic = true;
+        posicionInicial = transform.position;
     }
 
-    void RotarHaciaObjetivo()
+    void FixedUpdate()
     {
-        // calcular la dirección hacia el objetivo
-        Vector3 direccion = objetivo.position - transform.position;
-        direccion.y = 0; // mantener la rotación solo en el eje Y
+        if (!mover) return; // si se bloquea el movimiento
 
-        // rotar
+        float posicion_Y = transform.position.y;
+        Vector3 destino;
+
+        float distanciaJugador = Vector3.Distance(transform.position, objetivo.position);
+
+        if (distanciaJugador <= rango)
+        {
+            destino = objetivo.position; // si esta cerca del player
+        }
+        else
+        {
+            destino = posicionInicial;
+        }
+
+        // comprobar si volvio a la posicion inicial
+        if (Vector3.Distance(transform.position, destino) < umbralLlegada)
+        {
+            return;
+        }
+
+        Vector3 direccion = (destino - transform.position).normalized;
+        direccion.y = 0;
+        float distanciaMovimiento = velocidad * Time.fixedDeltaTime;
+        Vector3 origenRaycast = transform.position + Vector3.up * 1f;
+
+        ultimaDireccion = direccion;
+
+        // Raycast para detectar paredes
+        if (Physics.Raycast(origenRaycast, direccion, out RaycastHit hit, distanciaMovimiento + 0.5f))
+        {
+            Debug.Log("Raycast tocó: " + hit.collider.name + " | Tag: " + hit.collider.tag);
+
+            if (hit.collider.CompareTag(paredTag))
+            {
+                paredDetectada = true;
+
+                if (!corutinaActiva)
+                    StartCoroutine(PausarMovimiento(2f));
+
+                return;
+            }
+        }
+
+        paredDetectada = false;
+
+        // mover hacia destino solo si está lejos
+        Vector3 nuevaPos = transform.position + direccion * distanciaMovimiento;
+        nuevaPos.y = posicion_Y;
+        rb.MovePosition(nuevaPos);
+
+        // miramos hacia el player
+        RotarHaciaObjetivo(direccion);
+    }
+
+    void RotarHaciaObjetivo(Vector3 direccion)
+    {
         if (direccion != Vector3.zero)
         {
             Quaternion rotacionObjetivo = Quaternion.LookRotation(direccion);
-
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotacionObjetivo,
-                velocidadRotacion * Time.deltaTime);
+            rb.MoveRotation(Quaternion.Slerp(rb.rotation, rotacionObjetivo,
+                velocidadRotacion * Time.fixedDeltaTime));
         }
+    }
+
+    IEnumerator PausarMovimiento(float tiempo)
+    {
+        mover = false;
+        corutinaActiva = true;
+        yield return new WaitForSeconds(tiempo);
+        mover = true;
+        corutinaActiva = false;
     }
 }

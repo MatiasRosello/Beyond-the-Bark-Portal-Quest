@@ -3,6 +3,7 @@ using UnityEngine;
 public class Daniar : MonoBehaviour
 {
     [SerializeField] private int daño = 20;
+    [SerializeField] private string objetivoTag;
     private bool estaAtacando = false;
 
     void OnTriggerEnter(Collider other)
@@ -10,7 +11,7 @@ public class Daniar : MonoBehaviour
         if (estaAtacando)
         {
             // Solo dañar enemigos
-            if (other.CompareTag("Enemy"))
+            if (other.CompareTag(objetivoTag))
             {
                 Vida vidaObjetivo = other.GetComponent<Vida>();
                 if (vidaObjetivo != null)

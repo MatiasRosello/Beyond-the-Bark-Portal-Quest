@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &503924935735007283
 Transform:
   m_ObjectHideFlags: 0
@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "da\xF1o": 10
+  objetivoTag: Player
 --- !u!65 &7554935819181726690
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -66,8 +67,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1, y: 0.1, z: 0.8}
-  m_Center: {x: 0, y: 0, z: 0.4}
+  m_Size: {x: 0.01000005, y: 0.010000049, z: 0.020000001}
+  m_Center: {x: 0.0049999743, y: 0.0049996222, z: -0.0000005889852}
 --- !u!1 &2872825955938007216
 GameObject:
   m_ObjectHideFlags: 0
