@@ -10,6 +10,12 @@ public class Chest : MonoBehaviour
 
     private bool canBeOpened;
     private bool opened;
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponentInChildren<Animator>();
+    }
 
     private void Update()
     {
@@ -17,6 +23,7 @@ public class Chest : MonoBehaviour
         {
             opened = true;
             FirstLevelTutorialManager.Instance.HasOpenedChest = true;
+            animator.SetTrigger("Open");
         }
     }
 }
