@@ -9,47 +9,47 @@ public class EnemyMove : MonoBehaviour
     [SerializeField] private float velocidadRotacion = 5f;
     [SerializeField] private string paredTag = "Pared";
     [SerializeField] private float distanciaDeteccion = 7f;
-    [SerializeField] private float umbralLlegada = 0.1f; // umbral para llegar a la posición inicial
+    [SerializeField] private float umbralLlegada = 0.1f;
 
     private Vector3 posicionInicial;
     private bool regresando = false;
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Start()
     {
-        // Guardar la posición inicial al iniciar
         posicionInicial = transform.position;
     }
 
     void Update()
     {
-
         float posicion_Y = transform.position.y;
         float distanciaAlJugador = Vector3.Distance(transform.position, objetivo.position);
         float distanciaAlInicio = Vector3.Distance(transform.position, posicionInicial);
 
-        // Si está dentro del rango del jugador, mover hacia él
+        bool isMoving = false;
+
         if (distanciaAlJugador <= rango && distanciaAlJugador > distanciaMinima)
         {
             regresando = false;
-
-            // Detectar si hay una pared frente al enemigo
             bool paredEnfrente = DetectarPared();
 
             Vector3 direccion = (objetivo.position - transform.position).normalized;
             Vector3 nuevaPos = transform.position + direccion * velocidad * Time.deltaTime;
             nuevaPos.y = posicion_Y;
 
-            // Solo mover si no hay pared enfrente
             if (!paredEnfrente)
             {
                 transform.position = nuevaPos;
+                isMoving = true;
             }
 
-            // Rotar hacia el objetivo
             RotarHaciaObjetivo();
         }
-
-        // Si no está en rango y no está en su posición inicial, regresar
         else if (distanciaAlJugador > rango && distanciaAlInicio > umbralLlegada)
         {
             regresando = true;
@@ -59,20 +59,21 @@ public class EnemyMove : MonoBehaviour
             nuevaPos.y = posicion_Y;
 
             transform.position = nuevaPos;
+            isMoving = true;
 
-            // Rotar hacia la posición inicial
             RotarHaciaPosicionInicial();
         }
         else
         {
-            // Ya está en la posición inicial
             regresando = false;
         }
+
+        animator.SetFloat("Speed", isMoving ? velocidad : 0f);
     }
 
     bool DetectarPared()
     {
-        // Raycast en la dirección en frente del enemigo
+        // Raycast en la direcciï¿½n en frente del enemigo
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
 
