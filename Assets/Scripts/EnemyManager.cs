@@ -66,10 +66,10 @@ public class EnemyManager : MonoBehaviour
     
      private IEnumerator HideTextAfterDelay(float delay)
     {
-        // Espera 'delay' segundos antes de continuar
+        
         yield return new WaitForSeconds(delay);
 
-        // Desactiva el objeto de texto, haciéndolo invisible
+       
         if (statusText != null)
         {
             statusText.gameObject.SetActive(false);
