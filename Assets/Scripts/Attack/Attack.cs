@@ -1,9 +1,10 @@
 using UnityEngine;
 
-public class Daniar : MonoBehaviour
+public class Attack : MonoBehaviour
 {
     [SerializeField] private float damage = 20;
     [SerializeField] private string objetivoTag;
+    
     private bool estaAtacando = false;
 
     void OnTriggerEnter(Collider other)

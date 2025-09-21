@@ -23,7 +23,7 @@ public class PlayerEquipment : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && canAttack)
         {
             animator.SetTrigger("SwordAttack");
-            sword.GetComponent<Daniar>().ActivateDamage();
+            sword.GetComponent<Attack>().ActivateDamage();
             soundController.attackSound();
         }
     }
