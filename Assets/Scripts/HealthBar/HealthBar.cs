@@ -31,4 +31,10 @@ public class HealthBar : MonoBehaviour
             GetComponent<IDie>().Die();
         }
     }
+
+    public void ResetHealth()
+    {
+        currentHealth = initialHealth;
+        image.fillAmount = Mathf.Clamp01(currentHealth / maxHealth);
+    }
 }

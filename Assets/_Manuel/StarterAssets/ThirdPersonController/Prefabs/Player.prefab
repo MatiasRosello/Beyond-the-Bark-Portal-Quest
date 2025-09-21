@@ -817,6 +817,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23bd08b588e9d294394b307c874024ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeGameObjects:
+  - {fileID: 6482976303225125706}
+  - {fileID: 1071660286923641224}
+  - {fileID: 5654471674749219509}
 --- !u!1 &8187455079231382173
 GameObject:
   m_ObjectHideFlags: 0
@@ -1246,7 +1250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9009563694365254008, guid: 3bc384283e331e64bacc95e74a3b63b9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.181
+      value: 2.052
       objectReference: {fileID: 0}
     - target: {fileID: 9009563694365254008, guid: 3bc384283e331e64bacc95e74a3b63b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1285,6 +1289,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 471063430e2f56c45a6ea56679020c34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnLivesDecreased:
+    m_PersistentCalls:
+      m_Calls: []
+  baseObject: {fileID: 4416926081852918481}
 --- !u!224 &6947656981903361327 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9009563694365254008, guid: 3bc384283e331e64bacc95e74a3b63b9, type: 3}

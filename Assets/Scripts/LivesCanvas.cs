@@ -2,15 +2,35 @@ using UnityEngine;
 
 public class LivesCanvas : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private GameObject[] lifeGameObjects;
+
+    private PlayerHealthBar playerHealthBar;
+
+    private void Awake()
     {
-        
+        playerHealthBar = FindAnyObjectByType<PlayerHealthBar>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        
+        playerHealthBar.OnLivesDecreased.AddListener(PlayerHealthBar_OnLivesDecreased);
+    }
+
+    private void OnDisable()
+    {
+        playerHealthBar.OnLivesDecreased.RemoveListener(PlayerHealthBar_OnLivesDecreased);
+    }
+
+    private void PlayerHealthBar_OnLivesDecreased(int lives)
+    {
+        foreach (GameObject life in lifeGameObjects)
+        {
+            life.SetActive(false);
+        }
+
+        for (int i = 0; i < lives; i++)
+        {
+            lifeGameObjects[i].SetActive(true);
+        }
     }
 }
