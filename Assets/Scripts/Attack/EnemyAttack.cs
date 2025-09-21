@@ -27,12 +27,16 @@ public class EnemyAttack : MonoBehaviour
             attack.ActivateDamage();
 
             canAttack = false;
-            Invoke(nameof(AttackDelay), 0.8f);
         }
     }
 
-    private void AttackDelay()
+    public void CanAttack_AnimationEvent()
     {
         canAttack = true;
+    }
+
+    public void CannotAttack_AnimationEvent()
+    {
+        canAttack = false;
     }
 }
