@@ -6,7 +6,8 @@ public class PlayerSoundController : MonoBehaviour
 
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip attack;
-    
+    [SerializeField] private AudioClip chest;
+
     //[SerializeField] private AudioClip damage;//
     //[SerializeField] private AudioClip death;//
 
@@ -15,8 +16,12 @@ public class PlayerSoundController : MonoBehaviour
         audioSource.PlayOneShot(attack);
     }
 
+    public void chestSound()
+    {
+        audioSource.PlayOneShot(chest);
+    }
 
-   
+
     /* public void damageSound()
      {
          audioSource.PlayOneShot(damage);

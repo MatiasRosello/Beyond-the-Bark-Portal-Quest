@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour
 {
+    [SerializeField] private PlayerSoundController soundController;
     public bool CanBeOpened
+
     {
         get => canBeOpened;
         set => canBeOpened = value;
@@ -24,6 +26,7 @@ public class Chest : MonoBehaviour
             opened = true;
             FirstLevelTutorialManager.Instance.HasOpenedChest = true;
             animator.SetTrigger("Open");
+            soundController.chestSound();
         }
     }
 }
