@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6fea47c1ac9fd84794546bc9748e136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "da\xF1o": 10
+  damage: 20
   objetivoTag: Player
 --- !u!65 &7554935819181726690
 BoxCollider:

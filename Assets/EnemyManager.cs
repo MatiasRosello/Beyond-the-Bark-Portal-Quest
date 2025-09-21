@@ -13,15 +13,15 @@ public class EnemyManager : MonoBehaviour
     public void EnemyDefeated()
     {
         
-      /*  if (defeatedEnemies == 0)
+        if (defeatedEnemies == 0)
         {
             statusText.gameObject.SetActive(true);
-        } */
+        } 
 
         defeatedEnemies++;
         Debug.Log("Enemigo derrotado. Total: " + defeatedEnemies);
 
-        //UpdateUIText();//
+        UpdateUIText();
 
         if (defeatedEnemies >= enemiesToDefeat)
         {
@@ -44,7 +44,7 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-  /*  private void UpdateUIText()
+   private void UpdateUIText()
     {
         if (statusText != null)
         {
@@ -56,15 +56,15 @@ public class EnemyManager : MonoBehaviour
             {
                 statusText.text = "Todos los enemigos han muerto, recoge la llave para avanzar.";
 
-              //  StartCoroutine(HideTextAfterDelay(3f)); //
+              StartCoroutine(HideTextAfterDelay(3f));
             }
         }
-    } */
+    } 
 
-    // Coroutine para ocultar el texto
+    // Coroutine para ocultar el texto//
    
     
-    /* private IEnumerator HideTextAfterDelay(float delay)
+     private IEnumerator HideTextAfterDelay(float delay)
     {
         // Espera 'delay' segundos antes de continuar
         yield return new WaitForSeconds(delay);
@@ -76,7 +76,7 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    */
+    
 
 }
 
