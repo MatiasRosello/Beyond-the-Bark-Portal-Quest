@@ -1,3 +1,4 @@
+using StarterAssets;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,10 +7,10 @@ public class PlayerHealthBar : MonoBehaviour, IDie
     public UnityEvent<int> OnLivesDecreased;
 
     [SerializeField] private GameObject baseObject;
+    [SerializeField] private ThirdPersonController thirdPersonController;
 
     private HealthBar healthBar;
     private Vector3 initialPosition;
-    private Quaternion initialRotation;
     private int lives = 3;
 
     private void Awake()
@@ -20,7 +21,6 @@ public class PlayerHealthBar : MonoBehaviour, IDie
     private void Start()
     {
         initialPosition = baseObject.transform.position;
-        initialRotation = baseObject.transform.rotation;
     }
 
     public void Die()
@@ -34,11 +34,20 @@ public class PlayerHealthBar : MonoBehaviour, IDie
         }
         else
         {
+            thirdPersonController.enabled = false;
+            thirdPersonController.GetComponent<Animator>().SetFloat("Speed", 0);
+
             baseObject.transform.position = initialPosition;
-            baseObject.transform.rotation = initialRotation;
             healthBar.ResetHealth();
+
+            Invoke(nameof(MovementDelay), 0.5f);
         }
 
         OnLivesDecreased?.Invoke(lives);
+    }
+
+    private void MovementDelay()
+    {
+        thirdPersonController.enabled = true;
     }
 }

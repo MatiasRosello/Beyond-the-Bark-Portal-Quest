@@ -1293,6 +1293,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   baseObject: {fileID: 4416926081852918481}
+  thirdPersonController: {fileID: 4416926081852918490}
 --- !u!224 &6947656981903361327 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9009563694365254008, guid: 3bc384283e331e64bacc95e74a3b63b9, type: 3}
