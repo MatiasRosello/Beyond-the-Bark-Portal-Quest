@@ -2,14 +2,16 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
+    public bool IsAttacking => isAttacking;
+
     [SerializeField] private float damage = 20;
     [SerializeField] private string objetivoTag;
-    
-    private bool estaAtacando = false;
+
+    private bool isAttacking = false;
 
     void OnTriggerEnter(Collider other)
     {
-        if (estaAtacando)
+        if (isAttacking)
         {
             // Solo da�ar enemigos
             if (other.CompareTag(objetivoTag))
@@ -24,7 +26,7 @@ public class Attack : MonoBehaviour
                     Debug.Log($"{other.gameObject.name} no tiene componente Vida");
                 }
 
-                estaAtacando = false;
+                isAttacking = false;
             }
 
             
@@ -33,7 +35,7 @@ public class Attack : MonoBehaviour
 
     public void ActivateDamage()
     {
-        estaAtacando = true;
+        isAttacking = true;
     }
 
 }
