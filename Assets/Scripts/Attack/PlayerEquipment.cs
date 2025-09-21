@@ -3,10 +3,12 @@ using UnityEngine;
 public class PlayerEquipment : MonoBehaviour
 {
     [SerializeField] private GameObject sword;
-
-    private bool canAttack;
-    private Animator animator;
     [SerializeField] private PlayerSoundController soundController;
+
+    private bool isAttacking;
+    private bool isSwordActive;
+    private Animator animator;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -15,16 +17,30 @@ public class PlayerEquipment : MonoBehaviour
     public void TurnOnSword()
     {
         sword.SetActive(true);
-        canAttack = true;
+        isSwordActive = true;
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && canAttack)
+        if (Input.GetMouseButtonDown(0) && isSwordActive && !isAttacking)
         {
             animator.SetTrigger("SwordAttack");
             sword.GetComponent<Attack>().ActivateDamage();
             soundController.attackSound();
+
+            isAttacking = false;
         }
+    }
+
+    public void CanAttack_AnimationEvent()
+    {
+        print("True");
+        isAttacking = true;
+    }
+
+    public void CannotAttack_AnimationEvent()
+    {
+        print("False");
+        isAttacking = false;
     }
 }
