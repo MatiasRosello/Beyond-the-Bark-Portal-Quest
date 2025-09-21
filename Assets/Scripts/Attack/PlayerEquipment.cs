@@ -6,7 +6,7 @@ public class PlayerEquipment : MonoBehaviour
 
     private bool canAttack;
     private Animator animator;
-
+    [SerializeField] private PlayerSoundController soundController;
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -24,6 +24,7 @@ public class PlayerEquipment : MonoBehaviour
         {
             animator.SetTrigger("SwordAttack");
             sword.GetComponent<Daniar>().ActivarDaño();
+            soundController.attackSound();
         }
     }
 }
