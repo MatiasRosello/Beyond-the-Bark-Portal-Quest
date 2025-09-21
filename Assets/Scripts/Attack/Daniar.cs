@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Daniar : MonoBehaviour
 {
-    [SerializeField] private int daño = 20;
+    [SerializeField] private float damage = 20;
     [SerializeField] private string objetivoTag;
     private bool estaAtacando = false;
 
@@ -10,14 +10,13 @@ public class Daniar : MonoBehaviour
     {
         if (estaAtacando)
         {
-            // Solo dañar enemigos
+            // Solo daï¿½ar enemigos
             if (other.CompareTag(objetivoTag))
             {
-                Vida vidaObjetivo = other.GetComponent<Vida>();
-                if (vidaObjetivo != null)
+                HealthBar healthBar = other.GetComponentInChildren<HealthBar>(true);
+                if (healthBar != null)
                 {
-                    vidaObjetivo.RecibirDanio(daño);
-                    Debug.Log($"Daño {daño} a {other.gameObject.name}");
+                    healthBar.DecreaseHealth(damage);
                 }
                 else
                 {
@@ -31,7 +30,7 @@ public class Daniar : MonoBehaviour
         }
     }
 
-    public void ActivarDaño()
+    public void ActivateDamage()
     {
         estaAtacando = true;
     }

@@ -22,7 +22,7 @@ public class EnemyAttack : MonoBehaviour
         {
             sword.SetActive(true);
             animator.SetTrigger("SwordAttack");
-            sword.GetComponent<Daniar>().ActivarDaño();
+            sword.GetComponent<Daniar>().ActivateDamage();
         }
     }
 }
