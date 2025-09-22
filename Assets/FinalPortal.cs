@@ -5,18 +5,18 @@ using DG.Tweening;
 
 public class FinalPortal : MonoBehaviour
 {
-    
+
     [SerializeField] private string nextSceneName;
 
     private void OnTriggerEnter(Collider other)
     {
-        
+
         GameObject otherObject = other.gameObject;
 
-        
+
         if (otherObject.CompareTag("Player"))
         {
-            
+
             ThirdPersonController thirdPersonController = otherObject.GetComponent<ThirdPersonController>();
             if (thirdPersonController != null)
             {
@@ -24,22 +24,22 @@ public class FinalPortal : MonoBehaviour
                 thirdPersonController.enabled = false;
             }
 
-            
+
             SceneTransitionManager.Instance.FadeIn(
                 null,
                 () => SceneManager.LoadScene(nextSceneName),
                 null);
         }
-        
+
         else if (otherObject.CompareTag("Enemy"))
         {
-            
+
             GameObject boss = GameObject.FindWithTag("Boss");
 
-            
+
             if (boss == null)
             {
-                
+
                 SceneTransitionManager.Instance.FadeIn(
                     null,
                     () => SceneManager.LoadScene(nextSceneName),
