@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2115808061824710020}
   - component: {fileID: 2655401333320645479}
-  - component: {fileID: 3586583124733333167}
   m_Layer: 0
   m_Name: Dog
   m_TagString: Untagged
@@ -50,26 +49,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   portalTransform: {fileID: 0}
-  stopDistance: 0.05
-  destroyOnReach: 1
-  mover: {fileID: 0}
-  playerInput: {fileID: 0}
---- !u!114 &3586583124733333167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2210854657445873209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66d306af0c0835a49a1a7d79a1467c13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objetivo: {fileID: 0}
-  rango: 5
-  distanciaMinima: 2
-  velocidad: 10
 --- !u!1 &5853076399174538130
 GameObject:
   m_ObjectHideFlags: 0

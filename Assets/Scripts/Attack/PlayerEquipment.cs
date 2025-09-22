@@ -4,6 +4,7 @@ public class PlayerEquipment : MonoBehaviour
 {
     [SerializeField] private GameObject sword;
     [SerializeField] private PlayerSoundController soundController;
+    [SerializeField] private bool turnOnSwordOnStart;
 
     private bool isAttacking;
     private bool isSwordActive;
@@ -12,6 +13,14 @@ public class PlayerEquipment : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        if (turnOnSwordOnStart)
+        {
+            TurnOnSword();
+        }
     }
 
     public void TurnOnSword()
