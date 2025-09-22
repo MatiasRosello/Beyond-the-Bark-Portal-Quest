@@ -21173,10 +21173,6 @@ PrefabInstance:
       value: Enemigo.3
       objectReference: {fileID: 0}
     - target: {fileID: 5330829137518913620, guid: 481906a4d49164d4b85872b2d4140601, type: 3}
-      propertyPath: rango
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 5330829137518913620, guid: 481906a4d49164d4b85872b2d4140601, type: 3}
       propertyPath: objetivo
       value: 
       objectReference: {fileID: 200905458}
