@@ -8,6 +8,7 @@ TagManager:
   - Dog
   - Enemy
   - Pared
+  - Boss
   layers:
   - Default
   - TransparentFX
