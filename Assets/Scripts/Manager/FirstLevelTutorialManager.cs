@@ -18,9 +18,12 @@ public class FirstLevelTutorialManager : MonoBehaviour
 
     public static FirstLevelTutorialManager Instance;
 
+    [SerializeField] private TutorialImage icono;
+    [SerializeField] private TutorialImage border;
     [SerializeField] private TutorialText useSpaceText;
     [SerializeField] private TutorialText chestText;
     [SerializeField] private TutorialText swordText;
+    [SerializeField] private TutorialText swordText2;
     [SerializeField] private GameObject chestWall;
 
     private Chest chest;
@@ -44,6 +47,8 @@ public class FirstLevelTutorialManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.25f);
         useSpaceText.Show();
+        icono.Show();
+        border.Show();
 
         yield return new WaitUntil(() => hasJumpedOverGap);
         useSpaceText.Hide();
@@ -60,7 +65,15 @@ public class FirstLevelTutorialManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         swordText.Show();
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
         swordText.Hide();
+
+        yield return new WaitForSeconds(1f);
+        swordText2.Show();
+
+        yield return new WaitForSeconds(4f);
+        swordText2.Hide();
+        icono.Hide();
+        border.Hide();
     }
 }
