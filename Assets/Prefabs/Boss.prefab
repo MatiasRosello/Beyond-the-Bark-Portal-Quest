@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2112072758200187359, guid: 481906a4d49164d4b85872b2d4140601, type: 3}
+      propertyPath: damage
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4913144144706791387, guid: 481906a4d49164d4b85872b2d4140601, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -50,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5213870313196750282, guid: 481906a4d49164d4b85872b2d4140601, type: 3}
       propertyPath: m_Name
-      value: Enemigo
+      value: Boss
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
