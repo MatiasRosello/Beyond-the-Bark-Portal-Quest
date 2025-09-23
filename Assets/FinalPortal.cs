@@ -31,20 +31,20 @@ public class FinalPortal : MonoBehaviour
                 null);
         }
 
-        else if (otherObject.CompareTag("Enemy"))
-        {
+        // else if (otherObject.CompareTag("Enemy"))
+        // {
 
-            GameObject boss = GameObject.FindWithTag("Boss");
+        //     GameObject boss = GameObject.FindWithTag("Boss");
 
 
-            if (boss == null)
-            {
+        //     if (boss == null)
+        //     {
 
-                SceneTransitionManager.Instance.FadeIn(
-                    null,
-                    () => SceneManager.LoadScene(nextSceneName),
-                    null);
-            }
-        }
+        //         SceneTransitionManager.Instance.FadeIn(
+        //             null,
+        //             () => SceneManager.LoadScene(nextSceneName),
+        //             null);
+        //     }
+        // }
     }
 }
