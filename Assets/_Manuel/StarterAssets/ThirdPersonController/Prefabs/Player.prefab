@@ -440,6 +440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sword: {fileID: 7755997212630762266}
   soundController: {fileID: 6823225255644130149}
+  turnOnSwordOnStart: 0
 --- !u!82 &2091339825710766506
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1357,7 +1358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8697878986922730867, guid: 0db1fe97c7aae5b4fa663d71584a8b24, type: 3}
       propertyPath: damage
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8697878986922730867, guid: 0db1fe97c7aae5b4fa663d71584a8b24, type: 3}
       propertyPath: objetivoTag

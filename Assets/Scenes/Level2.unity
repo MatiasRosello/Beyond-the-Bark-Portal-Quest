@@ -25501,33 +25501,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 519464670}
     m_Modifications:
-    - target: {fileID: 2992170319978926771, guid: a7b7e2b9f58ab47459496ec889c7b978, type: 3}
-      propertyPath: m_text
-      value: Enemigos Muertos 0/4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2992170319978926771, guid: a7b7e2b9f58ab47459496ec889c7b978, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2992170319978926771, guid: a7b7e2b9f58ab47459496ec889c7b978, type: 3}
-      propertyPath: m_fontSize
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 2992170319978926771, guid: a7b7e2b9f58ab47459496ec889c7b978, type: 3}
-      propertyPath: m_margin.z
-      value: -1999.574
-      objectReference: {fileID: 0}
-    - target: {fileID: 2992170319978926771, guid: a7b7e2b9f58ab47459496ec889c7b978, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 18
-      objectReference: {fileID: 0}
     - target: {fileID: 4638791262137973207, guid: a7b7e2b9f58ab47459496ec889c7b978, type: 3}
       propertyPath: m_Name
       value: ObjetiveText
-      objectReference: {fileID: 0}
-    - target: {fileID: 4638791262137973207, guid: a7b7e2b9f58ab47459496ec889c7b978, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8457657269795445167, guid: a7b7e2b9f58ab47459496ec889c7b978, type: 3}
       propertyPath: m_Pivot.x
