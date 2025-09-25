@@ -1,6 +1,7 @@
 using StarterAssets;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealthBar : MonoBehaviour, IDie
 {
@@ -29,8 +30,7 @@ public class PlayerHealthBar : MonoBehaviour, IDie
 
         if (lives <= 0)
         {
-            print("Game over!");
-            Time.timeScale = 0;
+            SceneManager.LoadScene("GameOver");
         }
         else
         {
