@@ -8,7 +8,7 @@ public class EnemyAttack : MonoBehaviour
 
     private Animator animator;
     private Attack attack;
-    private bool canAttack = true;
+    [SerializeField] private bool canAttack = true;
 
     private void Awake()
     {
