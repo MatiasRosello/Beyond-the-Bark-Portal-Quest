@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Pared
   - Boss
+  - Trap
   layers:
   - Default
   - TransparentFX
