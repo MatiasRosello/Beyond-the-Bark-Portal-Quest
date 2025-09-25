@@ -46,6 +46,8 @@ public class TutorialManager : MonoBehaviour
         StartCoroutine(FirstTutorialStepCoroutine());
 
         player = GameObject.FindGameObjectWithTag("Player");
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void OnDisable()
