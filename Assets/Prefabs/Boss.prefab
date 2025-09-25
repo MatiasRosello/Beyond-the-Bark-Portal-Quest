@@ -195,6 +195,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 5487729775608126517, guid: 481906a4d49164d4b85872b2d4140601, type: 3}
+      propertyPath: initialHealth
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 9104811186354311519, guid: 481906a4d49164d4b85872b2d4140601, type: 3}
       propertyPath: sword
       value: 
