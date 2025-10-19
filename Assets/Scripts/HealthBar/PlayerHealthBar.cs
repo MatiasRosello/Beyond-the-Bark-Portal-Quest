@@ -12,11 +12,13 @@ public class PlayerHealthBar : MonoBehaviour, IDie
 
     private HealthBar healthBar;
     private Vector3 initialPosition;
+    private CheckPoints checkPoints;
     private int lives = 3;
 
     private void Awake()
     {
         healthBar = GetComponent<HealthBar>();
+        checkPoints = FindAnyObjectByType<CheckPoints>();
     }
 
     private void Start()
@@ -37,8 +39,19 @@ public class PlayerHealthBar : MonoBehaviour, IDie
             thirdPersonController.enabled = false;
             thirdPersonController.GetComponent<Animator>().SetFloat("Speed", 0);
 
-            baseObject.transform.position = initialPosition;
             healthBar.ResetHealth();
+
+            if (checkPoints != null)
+            {
+                if (checkPoints.LastCheckPoint != null)
+                {
+                    baseObject.transform.position = checkPoints.LastCheckPoint.position;
+                }
+                else
+                {
+                    baseObject.transform.position = initialPosition;
+                }
+            }
 
             Invoke(nameof(MovementDelay), 0.5f);
         }
