@@ -232,7 +232,7 @@ MonoBehaviour:
   FootstepAudioVolume: 0.3
   JumpHeight: 1.8
   Gravity: -15
-  JumpTimeout: 0.3
+  JumpTimeout: 0
   FallTimeout: 0.15
   Grounded: 1
   GroundedOffset: -0.14
