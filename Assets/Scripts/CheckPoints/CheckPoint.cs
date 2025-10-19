@@ -2,15 +2,18 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private CheckPoints checkPoints;
+
+    private void Awake()
     {
-        
+        checkPoints = FindFirstObjectByType<CheckPoints>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.CompareTag("Player"))
+        {
+            checkPoints.UpdateLastCheckPoint(this.transform);
+        }
     }
 }
