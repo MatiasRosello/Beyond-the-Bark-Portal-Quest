@@ -31354,6 +31354,10 @@ PrefabInstance:
       propertyPath: keySpawnPoint
       value: 
       objectReference: {fileID: 1593764852}
+    - target: {fileID: 8161222878832812136, guid: eed8e8cd007c7ec4b9987f32fbeef8a9, type: 3}
+      propertyPath: enemiesToDefeat
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
