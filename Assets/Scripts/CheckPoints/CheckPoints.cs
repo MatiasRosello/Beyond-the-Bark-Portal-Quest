@@ -30,5 +30,12 @@ public class CheckPoints : MonoBehaviour
 
         checkPointTextRectTransform.anchoredPosition = Vector2.zero;
         checkPointTextRectTransform.DOAnchorPosY(150f, 0.5f);
+
+        Invoke("HideCheckPointText", 2f);
+    }
+
+    private void HideCheckPointText()
+    {
+        checkPointText.DOFade(0, 0.5f);
     }
 }
