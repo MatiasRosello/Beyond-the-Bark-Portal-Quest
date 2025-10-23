@@ -16906,6 +16906,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5153607873270139062, guid: 481906a4d49164d4b85872b2d4140601, type: 3}
+      propertyPath: potionPrefab
+      value: 
+      objectReference: {fileID: 5250800828616060832, guid: 1b4648efc07145e4eaf6c83cc569f956, type: 3}
     - target: {fileID: 5213870313196750282, guid: 481906a4d49164d4b85872b2d4140601, type: 3}
       propertyPath: m_Name
       value: Enemigo (3)
@@ -17481,6 +17485,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5153607873270139062, guid: 481906a4d49164d4b85872b2d4140601, type: 3}
+      propertyPath: potionPrefab
+      value: 
+      objectReference: {fileID: 5250800828616060832, guid: 1b4648efc07145e4eaf6c83cc569f956, type: 3}
     - target: {fileID: 5213870313196750282, guid: 481906a4d49164d4b85872b2d4140601, type: 3}
       propertyPath: m_Name
       value: Enemigo (1)
@@ -52900,6 +52908,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5153607873270139062, guid: 481906a4d49164d4b85872b2d4140601, type: 3}
+      propertyPath: potionPrefab
+      value: 
+      objectReference: {fileID: 5250800828616060832, guid: 1b4648efc07145e4eaf6c83cc569f956, type: 3}
     - target: {fileID: 5213870313196750282, guid: 481906a4d49164d4b85872b2d4140601, type: 3}
       propertyPath: m_Name
       value: Enemigo
@@ -55297,6 +55309,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5153607873270139062, guid: 481906a4d49164d4b85872b2d4140601, type: 3}
+      propertyPath: potionPrefab
+      value: 
+      objectReference: {fileID: 5250800828616060832, guid: 1b4648efc07145e4eaf6c83cc569f956, type: 3}
     - target: {fileID: 5213870313196750282, guid: 481906a4d49164d4b85872b2d4140601, type: 3}
       propertyPath: m_Name
       value: Enemigo (2)
