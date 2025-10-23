@@ -37,4 +37,17 @@ public class HealthBar : MonoBehaviour
         currentHealth = initialHealth;
         image.fillAmount = Mathf.Clamp01(currentHealth / maxHealth);
     }
+
+    public void IncreaseHealth(float amountToHeal)
+    {
+        
+        currentHealth += amountToHeal;
+
+        
+        currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
+
+        
+        image.fillAmount = Mathf.Clamp01(currentHealth / maxHealth);
+    }
+
 }
