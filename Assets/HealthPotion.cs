@@ -8,11 +8,11 @@ public class HealthPotion : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            HealthBar healthBarDelPlayer = other.GetComponent<HealthBar>();
+            HealthBar playerHealthBar = other.GetComponentInChildren<HealthBar>();
 
-            if (healthBarDelPlayer != null)
+            if (playerHealthBar != null)
             {
-                healthBarDelPlayer.IncreaseHealth(lifeToHeal);
+                playerHealthBar.IncreaseHealth(lifeToHeal);
                 Destroy(gameObject);
             }
         }

@@ -3,6 +3,8 @@ using UnityEngine;
 public class EnemyHealthBar : MonoBehaviour, IDie
 {
     private EnemyManager enemyManager; // Referencia al gestor de enemigos
+    [SerializeField] private GameObject potionPrefab;
+    [SerializeField][Range(0f, 1f)] private float DropProbability = 0.3f;
 
     void Start()
     {
@@ -22,7 +24,17 @@ public class EnemyHealthBar : MonoBehaviour, IDie
             enemyManager.EnemyDefeated();
         }
 
-        
+
+        if (potionPrefab != null)
+        {
+            
+            if (Random.value <= DropProbability)
+            {
+              Instantiate(potionPrefab,transform.parent.parent.position,Quaternion.identity);
+            }
+        }
+
+
         Destroy(transform.parent.parent.gameObject);
     }
 }
