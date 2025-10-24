@@ -584,6 +584,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3083957581692192955}
     m_Modifications:
+    - target: {fileID: -2530253477756523746, guid: 3bc384283e331e64bacc95e74a3b63b9, type: 3}
+      propertyPath: baseGameObject
+      value: 
+      objectReference: {fileID: 5213870313196750282}
     - target: {fileID: 1268866479582398187, guid: 3bc384283e331e64bacc95e74a3b63b9, type: 3}
       propertyPath: baseGameObject
       value: 
@@ -675,30 +679,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6141705897253452503, guid: 3bc384283e331e64bacc95e74a3b63b9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5153607873270139062}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc384283e331e64bacc95e74a3b63b9, type: 3}
---- !u!1 &614748538041704457 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6141705897253452503, guid: 3bc384283e331e64bacc95e74a3b63b9, type: 3}
-  m_PrefabInstance: {fileID: 6751949658842208990}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5153607873270139062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 614748538041704457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9c94e4cabee0ff44aa89c14a2129d74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  potionPrefab: {fileID: 0}
-  DropProbability: 0.3
 --- !u!224 &2358716328723463078 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9009563694365254008, guid: 3bc384283e331e64bacc95e74a3b63b9, type: 3}

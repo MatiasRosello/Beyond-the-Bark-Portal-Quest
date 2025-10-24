@@ -3,19 +3,19 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] private float initialHealth;
-    [SerializeField] private GameObject baseGameObject;
+    [SerializeField] protected float initialHealth;
+    [SerializeField] protected GameObject baseGameObject;
 
-    private float currentHealth;
-    private float maxHealth;
-    private Image image;
+    protected float currentHealth; 
+    protected float maxHealth;
+    protected Image image;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         image = GetComponentInChildren<Image>();
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         maxHealth = initialHealth;
         currentHealth = initialHealth;
@@ -28,11 +28,11 @@ public class HealthBar : MonoBehaviour
 
         if (currentHealth <= 0f)
         {
-            GetComponent<IDie>().Die();
+            GetComponent<IDie>()?.Die();
         }
     }
 
-    public void ResetHealth()
+    public virtual void ResetHealth()
     {
         currentHealth = initialHealth;
         image.fillAmount = Mathf.Clamp01(currentHealth / maxHealth);
@@ -40,14 +40,8 @@ public class HealthBar : MonoBehaviour
 
     public void IncreaseHealth(float amountToHeal)
     {
-        
         currentHealth += amountToHeal;
-
-        
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
-
-        
         image.fillAmount = Mathf.Clamp01(currentHealth / maxHealth);
     }
-
 }

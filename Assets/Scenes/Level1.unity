@@ -12070,6 +12070,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4970032898962858557, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: initialHealth
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970032898962858557, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: baseGameObject
+      value: 
+      objectReference: {fileID: 1839301527}
     - target: {fileID: 6481432780292365122, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -12102,7 +12110,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 934642127513690812, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 1602990638710822976}
   - component: {fileID: 8144915473143497580}
   - component: {fileID: 2199524285392200587}
-  - component: {fileID: 1268866479582398187}
+  - component: {fileID: -2530253477756523746}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -112,7 +112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 2.181}
+  m_AnchoredPosition: {x: 0, y: 2.1810303}
   m_SizeDelta: {x: 1219.6, y: 319}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1602990638710822976
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1268866479582398187
+--- !u!114 &-2530253477756523746
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,8 +187,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6141705897253452503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18ed25abbb7f63240bc5bb442d46c82b, type: 3}
+  m_Script: {fileID: 11500000, guid: b9c94e4cabee0ff44aa89c14a2129d74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   initialHealth: 3
-  baseGameObject: {fileID: 0}
+  baseGameObject: {fileID: 5213870313196750282, guid: 481906a4d49164d4b85872b2d4140601, type: 3}
+  potionPrefab: {fileID: 5250800828616060832, guid: 1b4648efc07145e4eaf6c83cc569f956, type: 3}
+  dropProbability: 0.3

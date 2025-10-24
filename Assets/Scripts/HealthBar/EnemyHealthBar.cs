@@ -1,14 +1,15 @@
 using UnityEngine;
 
-public class EnemyHealthBar : MonoBehaviour, IDie
+public class EnemyHealthBar : HealthBar, IDie
 {
-    private EnemyManager enemyManager; // Referencia al gestor de enemigos
+    private EnemyManager enemyManager;
     [SerializeField] private GameObject potionPrefab;
-    [SerializeField][Range(0f, 1f)] private float DropProbability = 0.3f;
+    [SerializeField][Range(0f, 1f)] private float dropProbability = 0.3f;
 
-    void Start()
+    protected override void Start()
     {
-        // Busca el objeto que tiene el script EnemyManager.
+        base.Start();
+
         enemyManager = FindObjectOfType<EnemyManager>();
         if (enemyManager == null)
         {
@@ -18,22 +19,15 @@ public class EnemyHealthBar : MonoBehaviour, IDie
 
     public void Die()
     {
-        
         if (enemyManager != null)
         {
             enemyManager.EnemyDefeated();
         }
 
-
-        if (potionPrefab != null)
+        if (potionPrefab != null && Random.value <= dropProbability)
         {
-            
-            if (Random.value <= DropProbability)
-            {
-              Instantiate(potionPrefab,transform.parent.parent.position,Quaternion.identity);
-            }
+            Instantiate(potionPrefab, transform.parent.parent.position, Quaternion.identity);
         }
-
 
         Destroy(transform.parent.parent.gameObject);
     }
