@@ -3,14 +3,9 @@ using System.Collections;
 
 public class EnemyKnockback : MonoBehaviour
 {
-    [SerializeField] private float knockbackForce = 12f; 
-    [SerializeField] private float knockbackDuration = 0.1f;
-    [SerializeField]
-    private AnimationCurve knockbackCurve = new AnimationCurve(
-        new Keyframe(0, 0),
-        new Keyframe(0.2f, 1), // rapidez de knockback
-        new Keyframe(1, 0)
-    );
+    [SerializeField] private float knockbackForce = 10f; 
+    [SerializeField] private float upwardForce = 6f;
+    [SerializeField] private float stunDuration = 0.3f;
 
     private Rigidbody rb;
     private bool isKnockback = false;
@@ -18,6 +13,15 @@ public class EnemyKnockback : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        if (rb != null)
+        {
+            rb.isKinematic = false;
+            rb.useGravity = true;
+            rb.freezeRotation = true;
+
+            rb.mass = 1f;
+        }
     }
 
     public void ApplyKnockback(Vector3 direction)
@@ -32,21 +36,18 @@ public class EnemyKnockback : MonoBehaviour
     {
         isKnockback = true;
 
-        Vector3 startPosition = transform.position;
-        Vector3 targetPosition = startPosition + (new Vector3(direction.x, 0, direction.z).normalized * knockbackForce);
+        // Verticalmente
+        Vector3 knockbackDirection = new Vector3(direction.x, 0, direction.z).normalized;
 
-        float elapsedTime = 0f;
+        // Horizontalmente
+        Vector3 totalForce = (knockbackDirection * knockbackForce) + (Vector3.up * upwardForce);
+        rb.AddForce(totalForce, ForceMode.VelocityChange);
 
-        while (elapsedTime < knockbackDuration)
-        {
-            float curveValue = knockbackCurve.Evaluate(elapsedTime / knockbackDuration);
-            Vector3 newPosition = Vector3.Lerp(startPosition, targetPosition, curveValue);
-            rb.MovePosition(newPosition);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-        
-        rb.MovePosition(targetPosition);
+        yield return new WaitForSeconds(stunDuration);
+
+        // Frenos
+        rb.linearVelocity *= 0.3f;
+
         isKnockback = false;
     }
 }
