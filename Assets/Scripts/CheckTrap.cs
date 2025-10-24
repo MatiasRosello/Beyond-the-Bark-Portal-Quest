@@ -2,19 +2,19 @@ using UnityEngine;
 
 public class CheckTrap : MonoBehaviour
 {
-    [SerializeField] private PlayerHealthBar playerHealthBar;
+    [SerializeField] private HealthBar healthBar;
 
     private void Awake()
     {
-        if (playerHealthBar == null)
-            playerHealthBar = GetComponent<PlayerHealthBar>();
+        if (healthBar == null)
+            healthBar = GetComponent<HealthBar>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Trap"))
         {
-            playerHealthBar.Die();
+            healthBar.Die();
         }
     }
 
@@ -22,7 +22,7 @@ public class CheckTrap : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Trap"))
         {
-            playerHealthBar.Die();
+            healthBar.Die();
         }
     }
 }

@@ -17,7 +17,7 @@ public class EnemyHealthBar : HealthBar, IDie
         }
     }
 
-    public void Die()
+    public override void Die()
     {
         if (enemyManager != null)
         {

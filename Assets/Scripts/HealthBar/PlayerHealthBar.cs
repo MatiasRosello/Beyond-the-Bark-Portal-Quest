@@ -25,7 +25,7 @@ public class PlayerHealthBar : HealthBar, IDie
         initialPosition = baseGameObject.transform.position;
     }
 
-    public void Die()
+    public override void Die()
     {
         lives -= 1;
 

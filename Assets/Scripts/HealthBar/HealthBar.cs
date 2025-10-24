@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBar : MonoBehaviour
+public class HealthBar : MonoBehaviour, IDie
 {
     [SerializeField] protected float initialHealth;
     [SerializeField] protected GameObject baseGameObject;
@@ -28,7 +28,7 @@ public class HealthBar : MonoBehaviour
 
         if (currentHealth <= 0f)
         {
-            GetComponent<IDie>()?.Die();
+            Die();
         }
     }
 
@@ -43,5 +43,10 @@ public class HealthBar : MonoBehaviour
         currentHealth += amountToHeal;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
         image.fillAmount = Mathf.Clamp01(currentHealth / maxHealth);
+    }
+
+    public virtual void Die()
+    {
+
     }
 }

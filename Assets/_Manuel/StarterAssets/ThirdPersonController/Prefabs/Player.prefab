@@ -128,6 +128,7 @@ GameObject:
   - component: {fileID: 9124495224499136829}
   - component: {fileID: 2091339825710766506}
   - component: {fileID: 6823225255644130149}
+  - component: {fileID: 7760330046683350896}
   - component: {fileID: 147953228061237980}
   m_Layer: 0
   m_Name: Player
@@ -554,6 +555,18 @@ MonoBehaviour:
   audioSource: {fileID: 2091339825710766506}
   attack: {fileID: 8300000, guid: 52cd4f2c94f74ba478e6536365ad2bf6, type: 3}
   chest: {fileID: 0}
+--- !u!114 &7760330046683350896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4416926081852918481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aabbbc3edb6fbf49930627d5d0a60db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &147953228061237980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -566,7 +579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c7079cfa80f0043922fcd2c9a323f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealthBar: {fileID: 4970032898962858557}
+  healthBar: {fileID: 4970032898962858557}
 --- !u!1 &5654471674749219509
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,7 +1190,7 @@ PrefabInstance:
       objectReference: {fileID: 4416926081852918481}
     - target: {fileID: 6141705897253452503, guid: 3bc384283e331e64bacc95e74a3b63b9, type: 3}
       propertyPath: m_Name
-      value: HealthBar
+      value: PlayerHealthBar
       objectReference: {fileID: 0}
     - target: {fileID: 6891211181398168330, guid: 3bc384283e331e64bacc95e74a3b63b9, type: 3}
       propertyPath: m_Color.b
@@ -1279,7 +1292,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2530253477756523746, guid: 3bc384283e331e64bacc95e74a3b63b9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1304,10 +1318,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 471063430e2f56c45a6ea56679020c34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialHealth: 3
+  baseGameObject: {fileID: 4416926081852918481}
   OnLivesDecreased:
     m_PersistentCalls:
       m_Calls: []
-  baseObject: {fileID: 4416926081852918481}
   thirdPersonController: {fileID: 4416926081852918490}
 --- !u!224 &6947656981903361327 stripped
 RectTransform:
