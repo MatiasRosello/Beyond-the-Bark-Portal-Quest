@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LivesCanvas : MonoBehaviour
 {
-    [SerializeField] private GameObject[] lifeGameObjects;
+    [SerializeField] private Image[] lifeImages;
 
     private PlayerHealthBar playerHealthBar;
 
@@ -23,14 +24,11 @@ public class LivesCanvas : MonoBehaviour
 
     private void PlayerHealthBar_OnLivesDecreased(int lives)
     {
-        foreach (GameObject life in lifeGameObjects)
+        for (int i = 0; i < lifeImages.Length; i++)
         {
-            life.SetActive(false);
-        }
-
-        for (int i = 0; i < lives; i++)
-        {
-            lifeGameObjects[i].SetActive(true);
+            Color color = lifeImages[i].color;
+            color.a = (i < lives) ? 1f : 0.1f; // Cambiar transparencia
+            lifeImages[i].color = color;
         }
     }
 }
