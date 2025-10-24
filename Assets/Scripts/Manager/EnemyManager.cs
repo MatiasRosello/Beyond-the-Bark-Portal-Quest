@@ -9,6 +9,7 @@ public class EnemyManager : MonoBehaviour
     private int defeatedEnemies = 0;
     [SerializeField] private int enemiesToDefeat;
     [SerializeField] private TextMeshProUGUI statusText;
+    [SerializeField] private FirstLevelTutorialManager firstLevelTutorialManager;
 
     public void EnemyDefeated()
     {
@@ -54,29 +55,12 @@ public class EnemyManager : MonoBehaviour
             }
             else
             {
-                statusText.text = "Todos los enemigos han muerto, recoge la llave para avanzar.";
+                statusText.gameObject.SetActive(false);
+                firstLevelTutorialManager.HasLlave = true;
 
-              StartCoroutine(HideTextAfterDelay(3f));
             }
         }
     } 
-
-    // Coroutine para ocultar el texto//
-   
-    
-     private IEnumerator HideTextAfterDelay(float delay)
-    {
-        
-        yield return new WaitForSeconds(delay);
-
-       
-        if (statusText != null)
-        {
-            statusText.gameObject.SetActive(false);
-        }
-    }
-
-    
 
 }
 

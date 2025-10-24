@@ -16,6 +16,12 @@ public class FirstLevelTutorialManager : MonoBehaviour
         set => hasOpenedChest = value;
     }
 
+    public bool HasLlave
+    {
+        get => hasLlave;
+        set => hasLlave = value;
+    }
+
     public static FirstLevelTutorialManager Instance;
 
     [SerializeField] private TutorialImage icono;
@@ -24,12 +30,15 @@ public class FirstLevelTutorialManager : MonoBehaviour
     [SerializeField] private TutorialText chestText;
     [SerializeField] private TutorialText swordText;
     [SerializeField] private TutorialText swordText2;
+    [SerializeField] private TutorialText llaveText;
+    [SerializeField] private TutorialText llaveText2;
     [SerializeField] private GameObject chestWall;
 
     private Chest chest;
     private PlayerEquipment playerEquipment;
     private bool hasJumpedOverGap;
     private bool hasOpenedChest;
+    private bool hasLlave;
 
     private void Awake()
     {
@@ -73,6 +82,22 @@ public class FirstLevelTutorialManager : MonoBehaviour
 
         yield return new WaitForSeconds(4f);
         swordText2.Hide();
+        icono.Hide();
+        border.Hide();
+
+        yield return new WaitUntil(() => hasLlave);
+        icono.Show();
+        border.Show();
+        llaveText.Show();
+
+        yield return new WaitForSeconds(2f);
+        llaveText.Hide();
+
+        yield return new WaitForSeconds(1f);
+        llaveText2.Show();
+
+        yield return new WaitForSeconds(6f);
+        llaveText2.Hide();
         icono.Hide();
         border.Hide();
     }
