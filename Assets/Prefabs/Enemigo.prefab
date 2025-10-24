@@ -367,7 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockbackForce: 12
-  knockbackDuration: 0.1
+  knockbackDuration: 0.3
   knockbackCurve:
     serializedVersion: 2
     m_Curve:
@@ -381,8 +381,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.3361084
-      value: 0.17293549
+      time: 0.2745224
+      value: 0.23750058
       inSlope: 0
       outSlope: 0
       tangentMode: 0
