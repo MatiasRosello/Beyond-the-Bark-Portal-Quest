@@ -27,7 +27,7 @@ public class Attack : MonoBehaviour
                     Debug.Log($"{other.gameObject.name} no tiene componente Vida");
                 }
 
-                // Aplicar knockback al enemigo
+                // Aplicar knockback
                 ApplyKnockback(other.transform);
 
                 isAttacking = false;
@@ -42,10 +42,10 @@ public class Attack : MonoBehaviour
         {
             // Calcular dirección del knockback (del jugador al enemigo)
             Vector3 knockbackDirection = enemyTransform.position - transform.position;
-            knockbackDirection.y = 0; // Opcional: mantener en plano horizontal
+            knockbackDirection.y = 0;
             knockbackDirection = knockbackDirection.normalized;
 
-            // Llamar al método público del EnemyKnockback
+            // método público del enemyKnockback
             enemyKnockback.ApplyKnockback(knockbackDirection);
         }
         else

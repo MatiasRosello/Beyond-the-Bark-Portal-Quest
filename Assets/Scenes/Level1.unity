@@ -4674,7 +4674,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -674, y: -175}
+  m_AnchoredPosition: {x: -853, y: -175}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &301695481
@@ -5117,7 +5117,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1319, y: -174}
+  m_AnchoredPosition: {x: -1498, y: -174}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &327227987
@@ -10525,7 +10525,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -673, y: -176}
+  m_AnchoredPosition: {x: -852, y: -176}
   m_SizeDelta: {x: 1454.314, y: 272.683}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &634426772
@@ -15610,7 +15610,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -673, y: -176}
+  m_AnchoredPosition: {x: -852, y: -176}
   m_SizeDelta: {x: 1454.314, y: 272.683}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &995920231
@@ -15915,7 +15915,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -673, y: -176}
+  m_AnchoredPosition: {x: -852, y: -176}
   m_SizeDelta: {x: 1454.314, y: 272.683}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1002042891
@@ -21851,7 +21851,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -673, y: -176}
+  m_AnchoredPosition: {x: -852, y: -176}
   m_SizeDelta: {x: 1454.314, y: 272.683}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1452575953
@@ -24609,11 +24609,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1685799466}
   - {fileID: 995920230}
   - {fileID: 1452575952}
   - {fileID: 1000531054}
   - {fileID: 634426771}
-  - {fileID: 1685799466}
   - {fileID: 327227986}
   - {fileID: 301695480}
   m_Father: {fileID: 0}
