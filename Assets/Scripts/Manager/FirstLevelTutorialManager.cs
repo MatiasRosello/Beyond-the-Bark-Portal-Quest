@@ -80,7 +80,7 @@ public class FirstLevelTutorialManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         swordText2.Show();
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(3f);
         swordText2.Hide();
         icono.Hide();
         border.Hide();
@@ -96,7 +96,7 @@ public class FirstLevelTutorialManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         llaveText2.Show();
 
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(4f);
         llaveText2.Hide();
         icono.Hide();
         border.Hide();

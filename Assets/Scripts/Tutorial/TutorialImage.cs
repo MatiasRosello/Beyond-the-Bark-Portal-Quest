@@ -21,6 +21,7 @@ public class TutorialImage : MonoBehaviour
 
     public void Show()
     {
+        image.enabled = true;
         // Solo fade in, sin modificar la escala
         image.DOFade(1f, 1f).SetEase(Ease.InOutQuad);
     }

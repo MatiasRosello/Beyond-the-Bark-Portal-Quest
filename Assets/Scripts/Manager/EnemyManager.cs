@@ -60,7 +60,10 @@ public class EnemyManager : MonoBehaviour
                     statusText.gameObject.SetActive(false);
                     firstLevelTutorialManager.HasLlave = true;
                 }
-
+                else if (defeatedEnemies == enemiesToDefeat)
+                {
+                    statusText.text = "Enemigos muertos " + defeatedEnemies + "/" + enemiesToDefeat;
+                }
 
             }
         }
