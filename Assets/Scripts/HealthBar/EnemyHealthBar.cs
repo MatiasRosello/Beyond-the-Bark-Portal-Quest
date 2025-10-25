@@ -26,7 +26,9 @@ public class EnemyHealthBar : HealthBar, IDie
 
         if (potionPrefab != null && Random.value <= dropProbability)
         {
-            Instantiate(potionPrefab, transform.parent.parent.position, Quaternion.identity);
+            Vector3 spawnPosition = transform.parent.parent.position;
+            spawnPosition.y = 0.25f;
+            Instantiate(potionPrefab, spawnPosition, Quaternion.identity);
         }
 
         Destroy(transform.parent.parent.gameObject);
