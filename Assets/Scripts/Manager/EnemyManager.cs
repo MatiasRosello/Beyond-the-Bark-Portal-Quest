@@ -55,8 +55,12 @@ public class EnemyManager : MonoBehaviour
             }
             else
             {
-                statusText.gameObject.SetActive(false);
-                firstLevelTutorialManager.HasLlave = true;
+                if (firstLevelTutorialManager != null)
+                {
+                    statusText.gameObject.SetActive(false);
+                    firstLevelTutorialManager.HasLlave = true;
+                }
+
 
             }
         }

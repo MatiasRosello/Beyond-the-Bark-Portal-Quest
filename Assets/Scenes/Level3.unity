@@ -46151,6 +46151,14 @@ PrefabInstance:
       propertyPath: objetivo
       value: 
       objectReference: {fileID: 200905458}
+    - target: {fileID: 2292217964593164349, guid: 9fb0b1393c26c4b4ebfa2744da2313ca, type: 3}
+      propertyPath: initialHealth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3056805841238100130, guid: 9fb0b1393c26c4b4ebfa2744da2313ca, type: 3}
+      propertyPath: knockbackForce
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4379786982392846251, guid: 9fb0b1393c26c4b4ebfa2744da2313ca, type: 3}
       propertyPath: player
       value: 
