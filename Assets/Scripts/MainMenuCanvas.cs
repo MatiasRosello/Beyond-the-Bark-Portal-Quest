@@ -8,6 +8,16 @@ public class MainMenuCanvas : MonoBehaviour
         SceneManager.LoadScene("Tutorial");
     }
 
+    public void OnOptionsButtonPressed()
+    {
+        SceneManager.LoadScene("OptionsMenu");
+    }
+
+    public void OnMainMenuButtonPressed()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+    
     public void OnQuitButtonPressed()
     {
         Application.Quit();
