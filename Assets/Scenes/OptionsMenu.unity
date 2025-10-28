@@ -353,10 +353,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 1679013089}
   m_HandleRect: {fileID: 710638527}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -721,6 +721,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 413207620}
   m_CullTransparentMesh: 1
+--- !u!1 &483200671
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 483200673}
+  - component: {fileID: 483200672}
+  m_Layer: 0
+  m_Name: OptionsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &483200672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483200671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7668b7b8a883c4e9ae6a76fafbff78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 52742a22c8db6f04ea67b417cb004655, type: 2}
+  musicSlider: {fileID: 2064859136}
+  sfxSlider: {fileID: 170393429}
+  musicParameter: MusicVolume
+  sfxParameter: SFXVolume
+--- !u!4 &483200673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483200671}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 329.9512, y: 205.55371, z: -98.131004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &546347325
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,7 +925,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 41.472, y: 0}
+  m_AnchoredPosition: {x: 41.472046, y: 0}
   m_SizeDelta: {x: 102.944, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &710638528
@@ -1914,10 +1963,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 253873210}
   m_HandleRect: {fileID: 90480420}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1929,3 +1978,4 @@ SceneRoots:
   - {fileID: 546347327}
   - {fileID: 1472730943}
   - {fileID: 1731681405}
+  - {fileID: 483200673}
