@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeToHeal: 25
+  soundController: {fileID: -3894846643805325415}
 --- !u!54 &6026828406009641895
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -29,7 +29,7 @@ public class HealthBar : MonoBehaviour, IDie
         UpdateHealthBar();
     }
 
-    public void DecreaseHealth(float damageToTake)
+    public virtual void DecreaseHealth(float damageToTake)
     {
         currentHealth -= damageToTake;
         if (soundController != null)

@@ -5,10 +5,13 @@ public class EnemyHealthBar : HealthBar, IDie
     private EnemyManager enemyManager;
     [SerializeField] private GameObject potionPrefab;
     [SerializeField][Range(0f, 1f)] private float dropProbability = 0.3f;
+    [SerializeField] private EnemySoundController enemySoundController;
 
     protected override void Start()
     {
         base.Start();
+
+        
 
         enemyManager = FindObjectOfType<EnemyManager>();
         if (enemyManager == null)
@@ -16,6 +19,28 @@ public class EnemyHealthBar : HealthBar, IDie
             Debug.LogError("No hay script EnemyManager en la escena. Asegúrate de que existe y está activo.");
         }
     }
+
+
+    public override void DecreaseHealth(float damageToTake)
+    {
+        
+
+        currentHealth -= damageToTake; 
+
+        
+        if (enemySoundController != null)
+        {
+            enemySoundController.ZombieDamageSound();
+        }
+
+        UpdateHealthBar(); 
+
+        if (currentHealth <= 0f)
+        {
+            Die(); 
+        }
+    }
+
 
     public override void Die()
     {
