@@ -32,14 +32,17 @@ public class AudioSettingsMenu : MonoBehaviour
 
     public void SetMusicVolume(float value)
     {
-
-        audioMixer.SetFloat(musicParameter, Mathf.Log10(Mathf.Max(value, 0.001f)) * 20f);
+        value = Mathf.Clamp(value, 0.0001f, 1f);
+        float dB = Mathf.Log10(value) * 40f; 
+        audioMixer.SetFloat(musicParameter, dB);
         PlayerPrefs.SetFloat(musicParameter, value);
     }
 
     public void SetSFXVolume(float value)
     {
-        audioMixer.SetFloat(sfxParameter, Mathf.Log10(Mathf.Max(value, 0.001f)) * 20f);
+        value = Mathf.Clamp(value, 0.0001f, 1f);
+        float dB = Mathf.Log10(value) * 40f;
+        audioMixer.SetFloat(sfxParameter, dB);
         PlayerPrefs.SetFloat(sfxParameter, value);
     }
 }
