@@ -6,8 +6,7 @@ public class CheckTrap : MonoBehaviour
 
     private void Awake()
     {
-        if (healthBar == null)
-            healthBar = GetComponent<HealthBar>();
+        healthBar = GetComponentInChildren<HealthBar>();
     }
 
     private void OnTriggerEnter(Collider other)
