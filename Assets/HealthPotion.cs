@@ -4,6 +4,7 @@ public class HealthPotion : MonoBehaviour
 {
 
     [SerializeField] private float lifeToHeal = 25f;
+    [SerializeField] private PotionSoundController soundController;
 
     private void Start()
     {
@@ -30,7 +31,13 @@ public class HealthPotion : MonoBehaviour
             if (playerHealthBar != null)
             {
                 playerHealthBar.IncreaseHealth(lifeToHeal);
-                Destroy(gameObject);
+                if (soundController != null)
+                {
+                    soundController.pickUpPotionSound();
+                }
+                GetComponent<Collider>().enabled = false;
+                GetComponent<Renderer>().enabled = false;
+                Destroy(gameObject, 0.5f);
             }
         }
     }
