@@ -12130,6 +12130,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2612970602084758467, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: soundController
+      value: 
+      objectReference: {fileID: 724301898}
     - target: {fileID: 3893294197879345259, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.18
@@ -12190,6 +12194,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6823225255644130149, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: damage
+      value: 
+      objectReference: {fileID: 8300000, guid: 5f4871aa9e2d03049b2912b04907bee4, type: 3}
     - target: {fileID: 8016583748080607491, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -12211,6 +12219,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+--- !u!114 &724301898 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6823225255644130149, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+  m_PrefabInstance: {fileID: 724301897}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b626dcb7cf920564ca97622fbce4bc7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &729439259 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4220934241292132250, guid: a55e8b944b49e774899ecb13192840e5, type: 3}
@@ -14045,6 +14064,7 @@ MonoBehaviour:
   audioSource: {fileID: 865724997}
   attack: {fileID: 0}
   chest: {fileID: 8300000, guid: 691e22681c1fa074589dd225142916c1, type: 3}
+  damage: {fileID: 0}
 --- !u!82 &865724997
 AudioSource:
   m_ObjectHideFlags: 0
@@ -14054,7 +14074,7 @@ AudioSource:
   m_GameObject: {fileID: 865724993}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 2349885928447427644, guid: 52742a22c8db6f04ea67b417cb004655, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0

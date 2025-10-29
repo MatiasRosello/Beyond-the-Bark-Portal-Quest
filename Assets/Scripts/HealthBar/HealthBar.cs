@@ -6,6 +6,7 @@ public class HealthBar : MonoBehaviour, IDie
     [SerializeField] protected GameObject baseGameObject;
     [SerializeField] protected GameObject healthBarCube;
     [SerializeField] protected bool reduceFromLeft = true;
+    [SerializeField] private PlayerSoundController soundController;
 
     protected float currentHealth;
     protected float maxHealth;
@@ -31,7 +32,12 @@ public class HealthBar : MonoBehaviour, IDie
     public void DecreaseHealth(float damageToTake)
     {
         currentHealth -= damageToTake;
+        if (soundController != null)
+        {
+            soundController.damageSound();
+        }
         UpdateHealthBar();
+
 
         if (currentHealth <= 0f)
         {
