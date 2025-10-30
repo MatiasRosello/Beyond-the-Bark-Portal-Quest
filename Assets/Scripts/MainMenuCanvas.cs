@@ -22,4 +22,9 @@ public class MainMenuCanvas : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void OnCreditosButtonPressed()
+    {
+        SceneManager.LoadScene("CreditosMenu");
+    }
 }
