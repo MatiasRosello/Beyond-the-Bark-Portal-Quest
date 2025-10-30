@@ -7,6 +7,7 @@ public class FinalPortal : MonoBehaviour
 {
 
     [SerializeField] private string nextSceneName;
+    [SerializeField] private PortalSoundController soundController;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,7 +23,12 @@ public class FinalPortal : MonoBehaviour
             
             if (enemies.Length == 0)
             {
-                
+
+                if (soundController != null)
+                {
+                    soundController.EnterPortalSound();
+                }
+
                 ThirdPersonController thirdPersonController = otherObject.GetComponent<ThirdPersonController>();
                 if (thirdPersonController != null)
                 {
