@@ -539,6 +539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e54e5a728a9234ab24fcf1460ed8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 2091339825710766506}
   MoveSpeed: 5
   SprintSpeed: 7.5
   RotationSmoothTime: 0.12
@@ -555,7 +556,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 67c8b33e424ccdc4486edf538ab91c5a, type: 3}
   - {fileID: 8300000, guid: 274649b0e221539409070ebf6c18918b, type: 3}
   - {fileID: 8300000, guid: a3194b8bbc96ef84fab1f98f4b7dae3e, type: 3}
-  FootstepAudioVolume: 0.3
   JumpHeight: 1.8
   Gravity: -15
   JumpTimeout: 0
@@ -880,6 +880,7 @@ MonoBehaviour:
   audioSource: {fileID: 2091339825710766506}
   attack: {fileID: 8300000, guid: 52cd4f2c94f74ba478e6536365ad2bf6, type: 3}
   chest: {fileID: 0}
+  damage: {fileID: 0}
 --- !u!114 &7760330046683350896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1213,6 +1214,7 @@ MonoBehaviour:
   baseGameObject: {fileID: 4416926081852918481}
   healthBarCube: {fileID: 5832540696039422575}
   reduceFromLeft: 1
+  soundController: {fileID: 0}
   OnLivesDecreased:
     m_PersistentCalls:
       m_Calls: []
