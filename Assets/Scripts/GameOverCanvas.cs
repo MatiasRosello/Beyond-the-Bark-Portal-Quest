@@ -13,6 +13,11 @@ public class GameOverCanvas : MonoBehaviour
         SceneManager.LoadScene("Level1");
     }
 
+    public void OnMenuButtonPressed()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     public void OnQuitButtonPressed()
     {
         Application.Quit();

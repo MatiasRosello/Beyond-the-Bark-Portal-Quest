@@ -3,6 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class GameFinishedCanvas : MonoBehaviour
 {
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     public void OnCreditosButtonPressed()
     {
         SceneManager.LoadScene("CreditosVictory");
