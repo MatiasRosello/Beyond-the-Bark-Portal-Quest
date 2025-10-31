@@ -10,7 +10,7 @@ public class GameOverCanvas : MonoBehaviour
 
     public void OnRestartButtonPressed()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Level1");
     }
 
     public void OnQuitButtonPressed()

@@ -7,10 +7,14 @@ public class TutorialManager : MonoBehaviour
 {
     public static TutorialManager Instance;
 
+    [SerializeField] private TutorialImage icono;
+    [SerializeField] private TutorialImage border;
     [SerializeField] private TutorialText wasdTutorialText;
     [SerializeField] private TutorialText shiftTutorialText;
     [SerializeField] private TutorialText goToTheFirstObjectiveText;
+    [SerializeField] private TutorialText goToTheFirstObjectiveText2;
     [SerializeField] private TutorialText yourDogText;
+    [SerializeField] private TutorialText yourDogText2;
 
     [Space(15)]
 
@@ -58,6 +62,8 @@ public class TutorialManager : MonoBehaviour
     private IEnumerator FirstTutorialStepCoroutine()
     {
         yield return new WaitForSeconds(0.75f);
+        icono.Show();
+        border.Show();
         wasdTutorialText.Show();
 
         yield return new WaitForSeconds(5f);
@@ -74,11 +80,18 @@ public class TutorialManager : MonoBehaviour
         firstWall.SetActive(false);
         firstTutorialTrigger.SetActive(true);
 
+        yield return new WaitForSeconds(1.5f);
+        goToTheFirstObjectiveText.Hide();
+
+        yield return new WaitForSeconds(1f);
+        goToTheFirstObjectiveText2.Show();
     }
 
     public void FirstTutorialTrigger_OnTriggerEnterWithPlayer()
     {
-        goToTheFirstObjectiveText.Hide();
+        goToTheFirstObjectiveText2.Hide();
+        icono.Hide();
+        border.Hide();
 
         firstTutorialTrigger.SetActive(false);
 
@@ -104,7 +117,20 @@ public class TutorialManager : MonoBehaviour
 
     public void DogTutorialController_OnReachedPortal()
     {
+        StartCoroutine(DogReachedPortalCoroutine());
+    }
+
+    private IEnumerator DogReachedPortalCoroutine()
+    {
         thirdPersonController.enabled = true;
+        icono.Show();
+        border.Show();
         yourDogText.Show();
+
+        yield return new WaitForSeconds(1.5f);
+        yourDogText.Hide();
+
+        yield return new WaitForSeconds(1f);
+        yourDogText2.Show();
     }
 }
