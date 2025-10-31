@@ -6198,14 +6198,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2bd0268412d644e95febba4aa4a5cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icono: {fileID: 1910268781}
-  border: {fileID: 1083817409}
   wasdTutorialText: {fileID: 74819477}
   shiftTutorialText: {fileID: 755112555}
   goToTheFirstObjectiveText: {fileID: 873157638}
-  goToTheFirstObjectiveText2: {fileID: 1819325322}
   yourDogText: {fileID: 602297150}
-  yourDogText2: {fileID: 511852298}
   playerFollowCamera: {fileID: 594810290}
   secondTutorialStepCamera: {fileID: 629874252}
   firstPlayerTarget: {fileID: 586201904}
@@ -17439,7 +17435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3005915637643280101, guid: b668cd357bb66b0488f3a8bc4146b0d5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5014665314741717876, guid: b668cd357bb66b0488f3a8bc4146b0d5, type: 3}
       propertyPath: m_LocalPosition.x

@@ -11,12 +11,10 @@ public class EnemyHealthBar : HealthBar, IDie
     {
         base.Start();
 
-        
-
         enemyManager = FindObjectOfType<EnemyManager>();
         if (enemyManager == null)
         {
-            Debug.LogError("No hay script EnemyManager en la escena. Asegúrate de que existe y está activo.");
+            Debug.LogError("No hay script EnemyManager en la escena. Asegï¿½rate de que existe y estï¿½ activo.");
         }
     }
 

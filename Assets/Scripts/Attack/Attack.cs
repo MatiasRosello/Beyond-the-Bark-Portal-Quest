@@ -4,9 +4,7 @@ public class Attack : MonoBehaviour
 {
     public bool IsAttacking => isAttacking;
 
-    [SerializeField] private float damage = 20;
-    [SerializeField] private float knockbackForce = 10f;
-    [SerializeField] private string objetivoTag;
+    [SerializeField] private CharacterStatsSO characterStatsSO;
 
     private bool isAttacking = false;
 
@@ -15,12 +13,12 @@ public class Attack : MonoBehaviour
         if (isAttacking)
         {
             // Solo dañar enemigos
-            if (other.CompareTag(objetivoTag))
+            if (other.CompareTag(characterStatsSO.opponentTag))
             {
                 HealthBar healthBar = other.GetComponentInChildren<HealthBar>(true);
                 if (healthBar != null)
                 {
-                    healthBar.DecreaseHealth(damage);
+                    healthBar.DecreaseHealth(characterStatsSO.damage);
                 }
                 else
                 {

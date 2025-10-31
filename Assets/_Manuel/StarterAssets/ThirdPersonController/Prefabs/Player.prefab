@@ -1210,7 +1210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 471063430e2f56c45a6ea56679020c34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialHealth: 3
+  characterStatsSO: {fileID: 11400000, guid: d16e1432f4ee0f24d95d45e254dac463, type: 2}
   baseGameObject: {fileID: 4416926081852918481}
   healthBarCube: {fileID: 5832540696039422575}
   reduceFromLeft: 1
@@ -1918,6 +1918,10 @@ PrefabInstance:
       propertyPath: objetivoTag
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8697878986922730867, guid: 0db1fe97c7aae5b4fa663d71584a8b24, type: 3}
+      propertyPath: characterStatsSO
+      value: 
+      objectReference: {fileID: 11400000, guid: d16e1432f4ee0f24d95d45e254dac463, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

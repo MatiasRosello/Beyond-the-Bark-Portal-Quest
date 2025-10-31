@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HealthBar : MonoBehaviour, IDie
 {
-    [SerializeField] protected float initialHealth;
+    [SerializeField] protected CharacterStatsSO characterStatsSO;
     [SerializeField] protected GameObject baseGameObject;
     [SerializeField] protected GameObject healthBarCube;
     [SerializeField] protected bool reduceFromLeft = true;
@@ -24,8 +24,8 @@ public class HealthBar : MonoBehaviour, IDie
 
     protected virtual void Start()
     {
-        maxHealth = initialHealth;
-        currentHealth = initialHealth;
+        maxHealth = characterStatsSO.initialHealth;
+        currentHealth = characterStatsSO.initialHealth;
         UpdateHealthBar();
     }
 
@@ -47,7 +47,7 @@ public class HealthBar : MonoBehaviour, IDie
 
     public virtual void ResetHealth()
     {
-        currentHealth = initialHealth;
+        currentHealth = characterStatsSO.initialHealth;
         UpdateHealthBar();
     }
 
